@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:yro/custom/Nav_bar.dart';
 import 'package:yro/custom/Sign_In_Form.dart';
-import 'package:yro/screens/CharityContent.dart';
+
 import 'package:yro/screens/contact.dart';
 import 'package:yro/screens/landingPage.dart';
 import 'package:yro/screens/pictures.dart';

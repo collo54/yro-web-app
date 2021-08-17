@@ -7,6 +7,8 @@ import 'package:yro/services/AuthService.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
+import 'services/Generate_Route.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
@@ -47,6 +49,11 @@ class MyAwesomeApp extends StatelessWidget {
     return StreamProvider<Userre>.value(
       value: FirebaseAuthService().onAuthStateChanged,
       child: MaterialApp(
+        title: 'young revolutionary organization',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Roboto'),
+        initialRoute: '/Home',
+        onGenerateRoute: GenerateRoute.generateRoute,
         home: Wrapper(),
       ),
     );
