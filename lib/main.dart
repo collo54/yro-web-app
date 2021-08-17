@@ -81,7 +81,9 @@ class Loading extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.teal,
         body: Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: Colors.black,
+          ),
         ),
       ),
     );
