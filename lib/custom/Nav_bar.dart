@@ -31,7 +31,7 @@ class DesktopNavbar extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
-                  fontSize: 25),
+                  fontSize: 30),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,7 +39,7 @@ class DesktopNavbar extends StatelessWidget {
                 GestureDetector(
                   child: Text(
                     "Home",
-                    style: TextStyle(color: Colors.black87, fontSize: 30),
+                    style: TextStyle(color: Colors.black87, fontSize: 20),
                   ),
                   onTap: () {
                     Navigator.of(context).pushNamed('/Home');
@@ -51,7 +51,7 @@ class DesktopNavbar extends StatelessWidget {
                 GestureDetector(
                   child: Text(
                     "About Us",
-                    style: TextStyle(color: Colors.black87, fontSize: 30),
+                    style: TextStyle(color: Colors.black87, fontSize: 20),
                   ),
                   onTap: () {
                     Navigator.of(context).pushNamed('/Aboutus');
@@ -60,10 +60,10 @@ class DesktopNavbar extends StatelessWidget {
                 SizedBox(
                   width: 40,
                 ),
-                /*GestureDetector(
+                GestureDetector(
                   child: Text(
                     "Portfolio",
-                    style: TextStyle(color: Colors.black87),
+                    style: TextStyle(color: Colors.black87, fontSize: 20),
                   ),
                   onTap: () {
                     Navigator.of(context).pushNamed('/Portfoliopage');
@@ -71,23 +71,7 @@ class DesktopNavbar extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 30,
-                ),*/
-                SizedBox(
-                  height: 1,
-                  child: MaterialButton(
-                    padding: EdgeInsets.all(-2),
-                    color: Colors.green[400],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/login');
-                    },
-                    child: Text(
-                      "Log In",
-                      style: TextStyle(color: Colors.black87),
-                    ),
-                  ),
-                )
+                ),
               ],
             )
           ],
