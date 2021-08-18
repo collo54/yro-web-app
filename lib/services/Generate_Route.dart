@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yro/custom/wrapper.dart';
 
 import 'package:yro/screens/My_Home_Page.dart';
 /*import 'package:youthrevolution/screens/portfolio_page.dart';
@@ -9,6 +10,8 @@ class GenerateRoute {
     //final args = settings.arguments;
 
     switch (settings.name) {
+      case '/wrapper':
+        return MaterialPageRoute(builder: (_) => Wrapper());
       case '/Home':
         return MaterialPageRoute(builder: (_) => MyHomePage());
       /* case '/Aboutus':

@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'package:yro/custom/wapper.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/services/AuthService.dart';
-
 import 'package:firebase_core/firebase_core.dart';
-
 import 'services/Generate_Route.dart';
 
 void main() async {
@@ -52,9 +48,8 @@ class MyAwesomeApp extends StatelessWidget {
         title: 'young revolutionary organization',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Roboto'),
-        initialRoute: '/Home',
+        initialRoute: '/wrapper',
         onGenerateRoute: GenerateRoute.generateRoute,
-        home: Wrapper(),
       ),
     );
   }
