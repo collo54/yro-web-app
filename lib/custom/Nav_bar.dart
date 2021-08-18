@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 class Navbar extends StatelessWidget {
   @override
@@ -25,7 +26,8 @@ class DesktopNavbar extends StatelessWidget {
         Container(
           height: 620,
           width: 1400,
-          child: Image.asset('assets/images/watsup1.jpeg', fit: BoxFit.cover),
+          child: RiveAnimation.asset('assets/rive/luke-vs-darth.riv',
+              fit: BoxFit.cover),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 170),
@@ -98,7 +100,8 @@ class MobileNavbar extends StatelessWidget {
         Container(
           height: 420,
           width: 800,
-          child: Image.asset('assets/images/watsup1.jpeg', fit: BoxFit.cover),
+          child: RiveAnimation.asset('assets/rive/luke-vs-darth.riv',
+              fit: BoxFit.cover),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
@@ -109,7 +112,7 @@ class MobileNavbar extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                    color: Colors.white,
                     fontSize: 30),
               ),
               Padding(
@@ -120,7 +123,7 @@ class MobileNavbar extends StatelessWidget {
                     GestureDetector(
                       child: Text(
                         "Home",
-                        style: TextStyle(color: Colors.black87),
+                        style: TextStyle(color: Colors.white),
                       ),
                       onTap: () {
                         Navigator.of(context).pushNamed('/Home');
@@ -132,7 +135,7 @@ class MobileNavbar extends StatelessWidget {
                     GestureDetector(
                       child: Text(
                         "About Us",
-                        style: TextStyle(color: Colors.black87),
+                        style: TextStyle(color: Colors.white),
                       ),
                       onTap: () {
                         Navigator.of(context).pushNamed('/Aboutus');
@@ -144,7 +147,7 @@ class MobileNavbar extends StatelessWidget {
                     GestureDetector(
                       child: Text(
                         "Portfolio",
-                        style: TextStyle(color: Colors.black87),
+                        style: TextStyle(color: Colors.white),
                       ),
                       onTap: () {
                         Navigator.of(context).pushNamed('/Portfoliopage');

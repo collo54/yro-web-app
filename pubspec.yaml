@@ -25,13 +25,14 @@ dependencies:
     sdk: flutter
   carousel_pro: ^1.0.0
   cupertino_icons: ^1.0.1
-  firebase_auth: ^0.20.1
+  firebase_auth: ^3.0.2
   google_sign_in: ^4.4.6
   provider: ^4.3.2+2
-  
-  url_launcher: ^5.7.10
+  rive: ^0.7.22
   adobe_xd: ^1.0.0+1
-
+  url_launcher: ^6.0.9
+  http_parser: ^4.0.0
+   
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -83,3 +84,4 @@ flutter:
     - assets/images/watsup5.jpeg
     - assets/images/plantlady.png
     - assets/images/plantlady2.png
+    - assets/rive/luke-vs-darth.riv
