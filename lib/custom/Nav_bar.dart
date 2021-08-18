@@ -39,26 +39,26 @@ class DesktopNavbar extends StatelessWidget {
                 GestureDetector(
                   child: Text(
                     "Home",
-                    style: TextStyle(color: Colors.black87, fontSize: 50),
+                    style: TextStyle(color: Colors.black87, fontSize: 30),
                   ),
                   onTap: () {
                     Navigator.of(context).pushNamed('/Home');
                   },
                 ),
                 SizedBox(
-                  width: 70,
+                  width: 40,
                 ),
                 GestureDetector(
                   child: Text(
                     "About Us",
-                    style: TextStyle(color: Colors.black87, fontSize: 50),
+                    style: TextStyle(color: Colors.black87, fontSize: 30),
                   ),
                   onTap: () {
                     Navigator.of(context).pushNamed('/Aboutus');
                   },
                 ),
                 SizedBox(
-                  width: 50,
+                  width: 40,
                 ),
                 /*GestureDetector(
                   child: Text(
