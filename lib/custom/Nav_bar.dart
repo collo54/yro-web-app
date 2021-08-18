@@ -150,28 +150,6 @@ class MobileNavbar extends StatelessWidget {
                         Navigator.of(context).pushNamed('/Portfoliopage');
                       },
                     ),
-                    /*Padding(
-                    padding: const EdgeInsets.only(
-                      left: 10,
-                    ),
-                    child: MaterialButton(
-                      padding: EdgeInsets.all(2),
-                      color: Colors.green[400],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/login');
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20.0, horizontal: 40.0),
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(color: Colors.black87),
-                        ),
-                      ),
-                    ),
-                  )*/
                   ],
                 ),
               )
