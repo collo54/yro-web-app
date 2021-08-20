@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yro/widgets/new_form.dart';
 import 'package:yro/widgets/old_form.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/services/AuthService.dart';
@@ -26,9 +27,7 @@ class Formcontent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 1),
               child: Form(
-                child: OldForm(
-                  user: Userre(),
-                ),
+                child: SignUpForm(),
               ),
             ),
             Padding(
