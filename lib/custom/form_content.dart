@@ -3,8 +3,9 @@ import 'package:yro/models/user_form.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/services/AuthService.dart';
 
-class SignInForm extends StatelessWidget {
+class Formcontent extends StatelessWidget {
   final FirebaseAuthService _auth = FirebaseAuthService();
+
   List<Widget> pageChildren(double width) {
     return <Widget>[
       Container(

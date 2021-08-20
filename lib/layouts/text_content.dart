@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LandingPage extends StatelessWidget {
+class Textcontent extends StatelessWidget {
   List<Widget> pageChildren(double width) {
     return <Widget>[
       Container(

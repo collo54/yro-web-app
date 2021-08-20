@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yro/custom/Nav_bar.dart';
+import 'package:yro/layouts/Nav_bar.dart';
 
 class HomePage extends StatelessWidget {
   @override

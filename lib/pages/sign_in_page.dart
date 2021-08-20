@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yro/custom/Nav_bar.dart';
-import 'package:yro/custom/Sign_In_Form.dart';
-import 'package:yro/layouts/contact.dart';
-import 'package:yro/layouts/landingPage.dart';
+import 'package:yro/layouts/Nav_bar.dart';
+import 'package:yro/custom/form_content.dart';
+import 'package:yro/layouts/contact_content.dart';
+import 'package:yro/layouts/text_content.dart';
 
 class SignInPage extends StatelessWidget {
   @override
@@ -13,11 +13,8 @@ class SignInPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Navbar(),
-            LandingPage(),
-            SignInForm(),
-            SizedBox(
-              height: 20,
-            ),
+            Textcontent(),
+            Formcontent(),
             Container(color: Colors.blueGrey[300], child: ContactContent()),
           ],
         ),
