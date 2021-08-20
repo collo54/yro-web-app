@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yro/custom/wrapper.dart';
-
-import 'package:yro/screens/My_Home_Page.dart';
-/*import 'package:youthrevolution/screens/portfolio_page.dart';
-import 'package:youthrevolution/screens/log_in_page.dart';*/
+import 'package:yro/pages/sign_in_page.dart';
 
 class GenerateRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -12,8 +9,8 @@ class GenerateRoute {
     switch (settings.name) {
       case '/wrapper':
         return MaterialPageRoute(builder: (_) => Wrapper());
-      case '/Home':
-        return MaterialPageRoute(builder: (_) => MyHomePage());
+      case '/SignInPage':
+        return MaterialPageRoute(builder: (_) => SignInPage());
       /* case '/Aboutus':
         //if (args is String) {
         return MaterialPageRoute(builder: (_) => AboutUs());

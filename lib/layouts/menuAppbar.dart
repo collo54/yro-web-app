@@ -44,9 +44,8 @@ class MenuAppbar extends StatelessWidget {
             children: pageChildren(constraints.biggest.width),
           );
         } else {
-          return Flex(
+          return Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            direction: Axis.vertical,
             children: pageChildren(constraints.biggest.width),
           );
         }

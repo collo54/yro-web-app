@@ -3,22 +3,6 @@ import 'package:yro/models/user_form.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/services/AuthService.dart';
 
-/*class SignInPage extends StatelessWidget {
-  @override
-  build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: Icon(Icons.face),
-            onPressed: () {},
-          )
-        ],
-      ),
-    );
-  }
-}*/
-
 class SignInForm extends StatelessWidget {
   final FirebaseAuthService _auth = FirebaseAuthService();
   List<Widget> pageChildren(double width) {
@@ -102,12 +86,6 @@ class SignInForm extends StatelessWidget {
           ],
         ),
       ),
-      /*Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
-        child: Image.asset(
-          "assets/images/downloadru.jpg",
-        ),
-      )*/
     ];
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
 
 class Navbar extends StatelessWidget {
   @override
@@ -24,10 +23,9 @@ class DesktopNavbar extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 620,
+          height: 400,
           width: 1400,
-          child: RiveAnimation.asset('assets/rive/luke-vs-darth.riv',
-              fit: BoxFit.cover),
+          child: Image.asset('assets/images/watsup5.jpeg', fit: BoxFit.cover),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 170),
@@ -100,8 +98,7 @@ class MobileNavbar extends StatelessWidget {
         Container(
           height: 420,
           width: 800,
-          child: RiveAnimation.asset('assets/rive/luke-vs-darth.riv',
-              fit: BoxFit.cover),
+          child: Image.asset('assets/images/watsup5.jpeg', fit: BoxFit.cover),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),

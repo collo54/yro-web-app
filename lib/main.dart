@@ -45,7 +45,7 @@ class MyAwesomeApp extends StatelessWidget {
     return StreamProvider<Userre>.value(
       value: FirebaseAuthService().onAuthStateChanged,
       child: MaterialApp(
-        title: 'young revolutionary organization',
+        title: 'yro',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Roboto'),
         initialRoute: '/wrapper',
