@@ -6,48 +6,48 @@ import 'dart:async';
 class ContactContent extends StatelessWidget {
   List<Widget> pageChildren(double width) {
     return <Widget>[
-      Container(
-        width: width,
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 50,
-            ),
-            Text(
-              "contact us",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25.0,
-                  color: Colors.black87),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 15.0,
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        child: Container(
+          width: width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                height: 50,
               ),
-              child: RichText(
+              Text(
+                "contact us",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25.0,
+                    color: Colors.black87),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              RichText(
                 text: TextSpan(
-                  text: "contact us",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0,
-                      color: Colors.black87),
-                  children: [
-                    TextSpan(
-                      text: "+254 795 063199",
-                      style: TextStyle(fontSize: 20.0, color: Colors.blue[600]),
-                      recognizer: TapGestureRecognizer()..onTap = launchPhone,
-                    ),
-                    TextSpan(
-                      text: "+254 720 780486",
-                      style: TextStyle(fontSize: 20.0, color: Colors.blue[600]),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = launchPhoneNumber,
-                    )
-                  ],
+                  text: "+254 795 063199",
+                  style: TextStyle(fontSize: 20.0, color: Colors.blue[600]),
+                  recognizer: TapGestureRecognizer()..onTap = launchPhone,
                 ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 15,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: "+254 720 780486",
+                  style: TextStyle(fontSize: 20.0, color: Colors.blue[600]),
+                  recognizer: TapGestureRecognizer()..onTap = launchPhoneNumber,
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+            ],
+          ),
         ),
       ),
     ];
@@ -70,13 +70,11 @@ class ContactContent extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
-          return Flex(
-            direction: Axis.horizontal,
-            children: pageChildren(constraints.biggest.width / 2),
+          return Row(
+            children: pageChildren(constraints.biggest.width / 4),
           );
         } else {
-          return Flex(
-            direction: Axis.vertical,
+          return Column(
             children: pageChildren(constraints.biggest.width),
           );
         }
