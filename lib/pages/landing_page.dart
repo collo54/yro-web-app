@@ -4,7 +4,7 @@ import 'package:yro/custom/form_content.dart';
 import 'package:yro/layouts/contact_content.dart';
 import 'package:yro/layouts/text_content.dart';
 
-class SignInPage extends StatelessWidget {
+class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

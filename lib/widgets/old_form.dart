@@ -3,19 +3,19 @@ import 'package:yro/models/user_model.dart';
 
 typedef OnDelete();
 
-class UserForm extends StatefulWidget {
+class OldForm extends StatefulWidget {
   final Userre user;
   final state = _UserFormState();
   final OnDelete onDelete;
 
-  UserForm({Key key, this.user, this.onDelete});
+  OldForm({Key key, this.user, this.onDelete});
   // ignore: empty_constructor_bodies
   @override
   _UserFormState createState() => state;
   bool isValid() => state.validate();
 }
 
-class _UserFormState extends State<UserForm> {
+class _UserFormState extends State<OldForm> {
   final form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {

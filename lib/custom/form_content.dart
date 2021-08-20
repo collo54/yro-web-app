@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yro/models/user_form.dart';
+import 'package:yro/widgets/old_form.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/services/AuthService.dart';
 
@@ -26,7 +26,7 @@ class Formcontent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 1),
               child: Form(
-                child: UserForm(
+                child: OldForm(
                   user: Userre(),
                 ),
               ),
@@ -96,12 +96,10 @@ class Formcontent extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
           return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: pageChildren(constraints.biggest.width / 3),
           );
         } else {
-          return Flex(
-            direction: Axis.vertical,
+          return Column(
             children: pageChildren(constraints.biggest.width),
           );
         }
