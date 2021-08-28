@@ -1,92 +1,148 @@
 import 'package:flutter/material.dart';
-import 'package:yro/models/user_model.dart';
+import 'package:yro/services/AuthService.dart';
+import 'form_submit_button.dart';
 
-typedef OnDelete();
+//import 'package:time_tracker_flutter_course/common_widgets/form_submit_button.dart';
 
-class OldForm extends StatefulWidget {
-  final Userre user;
-  final state = _UserFormState();
-  final OnDelete onDelete;
+enum EmailSignInFormType { signIn, register }
 
-  OldForm({Key key, this.user, this.onDelete});
-  // ignore: empty_constructor_bodies
+class EmailSignInForm extends StatefulWidget {
+  EmailSignInForm({@required this.auth});
+  final AuthService auth;
   @override
-  _UserFormState createState() => state;
-  bool isValid() => state.validate();
+  _EmailSignInFormState createState() => _EmailSignInFormState();
 }
 
-class _UserFormState extends State<OldForm> {
-  final form = GlobalKey<FormState>();
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(10),
-      child: Card(
-        child: Form(
-          key: form,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              AppBar(
-                leading: Icon(
-                  Icons.people,
-                  color: Colors.black,
-                ),
-                title: Text(
-                  'Registration form',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-                actions: <Widget>[
-                  IconButton(
-                    color: Colors.black,
-                    icon: Icon(Icons.save),
-                    onPressed: () {},
-                  )
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TextFormField(
-                  initialValue: widget.user.uid,
-                  onSaved: (val) => widget.user.uid,
-                  validator: (val) => val.length > 3 ? null : 'member number',
-                  decoration: InputDecoration(
-                      labelText: 'member number',
-                      hintText: 'enter your member number'),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TextFormField(
-                  initialValue: widget.user.email,
-                  onSaved: (val) => widget.user.email,
-                  validator: (val) => val.contains('@') ? null : 'email',
-                  decoration: InputDecoration(
-                      labelText: 'email', hintText: 'enter your email'),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: TextFormField(
-                  initialValue: widget.user.password,
-                  onSaved: (val) => widget.user.password,
-                  validator: (val) => val.length > 6 ? null : 'password',
-                  decoration: InputDecoration(
-                      labelText: 'password', hintText: 'enter your password'),
-                ),
-              ),
-            ],
-          ),
-        ),
+class _EmailSignInFormState extends State<EmailSignInForm> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
+
+  String get _email => _emailController.text;
+  String get _password => _passwordController.text;
+  EmailSignInFormType _formType = EmailSignInFormType.signIn;
+
+  void _submit() async {
+    try {
+      if (_formType == EmailSignInFormType.signIn) {
+        await widget.auth.signInWithEmailAndPassword(_email, _password);
+      } else {
+        await widget.auth.createUserWithEmailAndPassword(_email, _password);
+      }
+      Navigator.of(context).pop();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  void _emailEditingComplete() {
+    FocusScope.of(context).requestFocus(_passwordFocusNode);
+  }
+
+  void _toggleFormType() {
+    setState(() {
+      _formType = _formType == EmailSignInFormType.signIn
+          ? EmailSignInFormType.register
+          : EmailSignInFormType.signIn;
+    });
+    _emailController.clear();
+    _passwordController.clear();
+  }
+
+  List<Widget> _buildChildren() {
+    final primaryText = _formType == EmailSignInFormType.signIn
+        ? 'Sign in'
+        : 'Create an account';
+    final secondaryText = _formType == EmailSignInFormType.signIn
+        ? 'Need an account? Register'
+        : 'Have an account? Sign in';
+
+    return [
+      Text(
+        "Welcome",
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25.0,
+            color: Colors.indigo[700]),
       ),
+      SizedBox(
+        height: 25,
+      ),
+      _buildEmailTextField(),
+      SizedBox(height: 25.0),
+      _buildPasswordTextField(),
+      SizedBox(height: 25.0),
+      FormSubmitButton(
+        text: primaryText,
+        onPressed: _submit,
+      ),
+      SizedBox(height: 25.0),
+      TextButton(
+        child: Text(secondaryText),
+        onPressed: _toggleFormType,
+      ),
+    ];
+  }
+
+  TextField _buildPasswordTextField() {
+    return TextField(
+      controller: _passwordController,
+      focusNode: _passwordFocusNode,
+      decoration: InputDecoration(
+        labelText: 'Password',
+      ),
+      obscureText: true,
+      textInputAction: TextInputAction.done,
+      onEditingComplete: _submit,
     );
   }
 
-  bool validate() {
-    var valid = form.currentState.validate();
-    if (valid) form.currentState.save();
-    return valid;
+  TextField _buildEmailTextField() {
+    return TextField(
+      controller: _emailController,
+      focusNode: _emailFocusNode,
+      decoration: InputDecoration(
+        labelText: 'Email',
+        hintText: 'test@test.com',
+      ),
+      autocorrect: false,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
+      onEditingComplete: _emailEditingComplete,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: _buildChildren(),
+      ),
+    );
+  }
+}
+
+class EmailSignInPage extends StatelessWidget {
+  EmailSignInPage({@required this.auth});
+  final AuthService auth;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign in'),
+        elevation: 2.0,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Card(
+          child: EmailSignInForm(auth: auth),
+        ),
+      ),
+      backgroundColor: Colors.grey[200],
+    );
   }
 }

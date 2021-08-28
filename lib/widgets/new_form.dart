@@ -81,7 +81,10 @@ class _SignUpFormState extends State<SignUpForm> {
               }),
             ),
             onPressed: _formProgress == 1 ? _showWelcomeScreen : null,
-            child: Text('Sign up'),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 90),
+              child: Text('sign up'),
+            ),
           ),
         ],
       ),

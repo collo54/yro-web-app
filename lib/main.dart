@@ -43,7 +43,7 @@ class MyAwesomeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<Userre>.value(
-      value: FirebaseAuthService().onAuthStateChanged,
+      value: AuthService().onAuthStateChanged,
       child: MaterialApp(
         title: 'yro',
         debugShowCheckedModeBanner: false,

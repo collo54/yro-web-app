@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yro/custom/wrapper.dart';
+import 'package:yro/pages/home_page.dart';
 import 'package:yro/pages/landing_page.dart';
 
 class GenerateRoute {
@@ -11,6 +12,9 @@ class GenerateRoute {
         return MaterialPageRoute(builder: (_) => Wrapper());
       case '/SignInPage':
         return MaterialPageRoute(builder: (_) => LandingPage());
+      case '/HomePage':
+        return MaterialPageRoute(builder: (_) => HomePage());
+
       /* case '/Aboutus':
         //if (args is String) {
         return MaterialPageRoute(builder: (_) => AboutUs());

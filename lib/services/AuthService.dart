@@ -3,11 +3,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:yro/models/user_model.dart';
 
-class FirebaseAuthService {
+class AuthService {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
-  FirebaseAuthService({FirebaseAuth firebaseAuth, GoogleSignIn googleSignin})
+  AuthService({FirebaseAuth firebaseAuth, GoogleSignIn googleSignin})
       : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
         _googleSignIn = googleSignin ?? GoogleSignIn();
 
@@ -17,9 +17,6 @@ class FirebaseAuthService {
     }
     return Userre(
       uid: user.uid,
-      // email: user.email,
-      // displayName: user.displayName,
-      // photoUrl: user.photoUrl,
     );
   }
 
@@ -29,6 +26,20 @@ class FirebaseAuthService {
 
   Future<Userre> signInAnonymously() async {
     final authResult = await _firebaseAuth.signInAnonymously();
+    return _userFromFirebase(authResult.user);
+  }
+
+  Future<Userre> signInWithEmailAndPassword(
+      String email, String password) async {
+    final authResult = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email, password: password);
+    return _userFromFirebase(authResult.user);
+  }
+
+  Future<Userre> createUserWithEmailAndPassword(
+      String email, String password) async {
+    final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email, password: password);
     return _userFromFirebase(authResult.user);
   }
 
