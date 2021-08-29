@@ -5,11 +5,43 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "yro",
+            "name": "dev",
+            "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "args": [
-                
+                //"--flavour",
+                //"dev",
+                "-t",
+                "lib/main.dart",
+                "--web-port",
+                "5000",
+            ]
+        },
+        {
+            "name": "staging",
+            "program": "lib/main_staging.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                //"--flavour",
+                //"staging",
+                "-t",
+                "lib/main_staging.dart",
+                "--web-port",
+                "5000",
+            ]
+        },
+        {
+            "name": "production",
+            "program": "lib/main_production.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                //"--flavour",
+                //"production",
+                "-t",
+                "lib/main_production.dart",
                 "--web-port",
                 "5000",
             ]

@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:yro/custom/wrapper.dart';
 import 'package:yro/pages/home_page.dart';
 import 'package:yro/pages/landing_page.dart';
+import 'package:yro/services/AuthService.dart';
 
 class GenerateRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     //final args = settings.arguments;
 
     switch (settings.name) {
-      case '/wrapper':
+      case '/':
         return MaterialPageRoute(builder: (_) => Wrapper());
-      case '/SignInPage':
-        return MaterialPageRoute(builder: (_) => LandingPage());
+      case '/LandingPage':
+        return MaterialPageRoute(
+            builder: (_) => LandingPage(
+                  auth: AuthService(),
+                ));
       case '/HomePage':
         return MaterialPageRoute(builder: (_) => HomePage());
 

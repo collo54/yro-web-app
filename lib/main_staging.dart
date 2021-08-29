@@ -5,5 +5,5 @@ import 'package:yro/my_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(Provider<Flavour>.value(value: Flavour.dev, child: MyApp()));
+  runApp(Provider<Flavour>.value(value: Flavour.staging, child: MyApp()));
 }

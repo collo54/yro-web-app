@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/pages/home_page.dart';
 import 'package:yro/pages/landing_page.dart';
+import 'package:yro/services/AuthService.dart';
 //import 'package:yro/services/AuthService.dart';
 
 class Wrapper extends StatelessWidget {
@@ -11,7 +12,9 @@ class Wrapper extends StatelessWidget {
     final user = Provider.of<Userre>(context);
 
     if (user == null) {
-      return LandingPage();
+      return LandingPage(
+        auth: AuthService(),
+      );
     } else {
       return HomePage();
     }
