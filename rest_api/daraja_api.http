@@ -1,0 +1,3 @@
+
+GET {{baseUrl}}/oauth/v1/generate?grant_type=client_credentials
+Authorization: Basic {{authorization}}
