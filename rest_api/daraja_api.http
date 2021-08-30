@@ -3,9 +3,17 @@ GET {{baseUrl}}/oauth/v1/generate?grant_type=client_credentials
 Authorization: Basic {{authorization}}
 
 ###
-POST {{baseUrl}}/mpesa/c2b/v1/registerurl
+POST {{baseUrl}}/mpesa/c2b/v1/simulate
 Content-Type: application/json
 Authorization: Bearer {{accessToken}}
+
+{    
+   "CommandID": "CustomerPayBillOnline",
+   "Amount":"10",
+   "Msisdn":"254724628580",
+   "BillRefNumber":"00000",
+   "ShortCode":"600247"
+}
 
 ###
 POST {{baseUrl}}/mpesa/stkpush/v1/processrequest
