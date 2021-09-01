@@ -4,6 +4,7 @@ import 'package:yro/layouts/form_content.dart';
 import 'package:yro/layouts/contact_content.dart';
 import 'package:yro/layouts/text_content.dart';
 import 'package:yro/services/AuthService.dart';
+import 'package:yro/widgets/getTokentest.dart';
 import 'package:yro/widgets/old_form.dart';
 
 class LandingPage extends StatelessWidget {
@@ -52,6 +53,7 @@ class LandingPage extends StatelessWidget {
                 ),
               ],
             ),
+            Demo(),
             Formcontent(),
             Container(color: Colors.blueGrey[300], child: ContactContent()),
           ],

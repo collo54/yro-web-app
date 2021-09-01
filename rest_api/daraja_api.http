@@ -10,9 +10,9 @@ Authorization: Bearer {{accessToken}}
 {    
    "CommandID": "CustomerPayBillOnline",
    "Amount":"10",
-   "Msisdn":"254724628580",
+   "Msisdn":"254743397176",
    "BillRefNumber":"00000",
-   "ShortCode":"600247"
+   "ShortCode": "600978"
 }
 
 ###
