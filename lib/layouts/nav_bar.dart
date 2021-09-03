@@ -1,4 +1,3 @@
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
@@ -26,16 +25,9 @@ class DesktopNavbar extends StatelessWidget {
         Container(
           height: 500,
           width: 1400,
-          child: Carousel(
-            boxFit: BoxFit.cover,
-            dotSize: 5.0,
-            dotBgColor: Colors.black12,
-            images: [
-              Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
-              Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-              Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-            ],
-          ),
+          child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
+          // Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
+          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 170),
@@ -108,16 +100,9 @@ class MobileNavbar extends StatelessWidget {
         Container(
           height: 420,
           width: 800,
-          child: Carousel(
-            boxFit: BoxFit.cover,
-            dotSize: 5.0,
-            dotBgColor: Colors.black12,
-            images: [
-              Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
-              Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-              Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-            ],
-          ),
+          child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
+          //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
+          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),

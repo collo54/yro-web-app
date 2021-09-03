@@ -1,4 +1,3 @@
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 class MenuAppbar extends StatelessWidget {
@@ -15,12 +14,7 @@ class MenuAppbar extends StatelessWidget {
                 width: 600,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 0),
-                  child: Carousel(
-                      boxFit: BoxFit.cover,
-                      dotBgColor: Colors.teal[300],
-                      images: [
-                        Image.asset("assets/images/plantlady.png"),
-                      ]),
+                  child: Image.asset("assets/images/plantlady.png"),
                 ),
               ),
             ]),

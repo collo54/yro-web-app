@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:yro/custom/wrapper.dart';
 import 'package:yro/pages/home_page.dart';
 import 'package:yro/pages/landing_page.dart';
-import 'package:yro/services/AuthService.dart';
 
 class GenerateRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -12,10 +11,7 @@ class GenerateRoute {
       case '/':
         return MaterialPageRoute(builder: (_) => Wrapper());
       case '/LandingPage':
-        return MaterialPageRoute(
-            builder: (_) => LandingPage(
-                  auth: AuthService(),
-                ));
+        return MaterialPageRoute(builder: (_) => LandingPage());
       case '/HomePage':
         return MaterialPageRoute(builder: (_) => HomePage());
 
@@ -46,7 +42,7 @@ class GenerateRoute {
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blueGrey[100],
         body: Center(
           child: Text('error'),
         ),

@@ -1,8 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/services/AuthService.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'services/Generate_Route.dart';
 
 class MyApp extends StatelessWidget {
@@ -33,12 +33,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAwesomeApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widget is the rooAuthService().onAuthStateChanged,t of your application.
 
   @override
   Widget build(BuildContext context) {
     return StreamProvider<Userre>.value(
       value: AuthService().onAuthStateChanged,
+      initialData: null,
       child: MaterialApp(
         title: 'yro',
         debugShowCheckedModeBanner: false,

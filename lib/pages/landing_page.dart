@@ -8,7 +8,7 @@ import 'package:yro/widgets/getTokentest.dart';
 import 'package:yro/widgets/old_form.dart';
 
 class LandingPage extends StatelessWidget {
-  LandingPage({@required this.auth});
+  LandingPage({this.auth});
   final AuthService auth;
 
   void _signInWithEmail(BuildContext context) {
