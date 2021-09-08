@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yro/layouts/Nav_bar.dart';
 import 'package:yro/layouts/form_content.dart';
 import 'package:yro/layouts/contact_content.dart';
+import 'package:yro/layouts/sign_in_content.dart';
 import 'package:yro/layouts/text_content.dart';
 import 'package:yro/services/AuthService.dart';
-import 'package:yro/widgets/getTokentest.dart';
 import 'package:yro/widgets/old_form.dart';
 
 class LandingPage extends StatelessWidget {
-  LandingPage({this.auth});
-  final AuthService auth;
-
   void _signInWithEmail(BuildContext context) {
+    final auth = Provider.of<AuthService>(context);
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         fullscreenDialog: true,
@@ -29,11 +28,11 @@ class LandingPage extends StatelessWidget {
           children: <Widget>[
             Navbar(),
             Textcontent(),
-            Row(
+            /* Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  'Sign up',
+                  'Sign up with email',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25.0,
@@ -52,8 +51,9 @@ class LandingPage extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            Demo(),
+            ),*/
+            //Demo(),
+            SignInContent(),
             Formcontent(),
             Container(color: Colors.blueGrey[300], child: ContactContent()),
           ],

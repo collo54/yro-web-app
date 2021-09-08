@@ -4,43 +4,48 @@ import 'package:yro/models/user_model.dart';
 import 'package:yro/pages/home_page.dart';
 import 'package:yro/pages/landing_page.dart';
 import 'package:yro/services/AuthService.dart';
-import 'package:yro/widgets/getTokentest.dart';
-//import 'package:yro/services/AuthService.dart';
+import 'package:yro/services/firebase_storage_service.dart';
+import 'package:yro/services/firestore_service.dart';
 
-class Wrapper extends StatelessWidget {
+/*class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<Userre>(context);
 
     if (user == null) {
-      return Demo();
-      /*LandingPage(
-        auth: AuthService(),
-      );*/
+      return //Demo();
+          LandingPage();
     } else {
       return HomePage();
     }
   }
-}
-/*class Wrapper extends StatelessWidget {
-  Wrapper({@required this.auth});
-  final AuthService auth;
+}*/
 
+/*class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthService>(context, listen: false);
+
     return StreamBuilder<Userre>(
         stream: auth.onAuthStateChanged,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
-            Userre user = snapshot.data;
-            if (user == null) {
-              return LandingPage(
-                auth: auth,
+            final user = snapshot.data;
+            if (user != null) {
+              return MultiProvider(
+                providers: [
+                  Provider<Userre>.value(value: user),
+                  Provider<FirebaseStorageService>(
+                    create: (_) => FirebaseStorageService(uid: user.uid),
+                  ),
+                  Provider<FirestoreService>(
+                    create: (_) => FirestoreService(uid: user.uid),
+                  ),
+                ],
+                child: HomePage(),
               );
             }
-            return HomePage(
-              auth: auth,
-            );
+            return LandingPage();
           } else {
             return Scaffold(
               body: Center(
@@ -51,3 +56,20 @@ class Wrapper extends StatelessWidget {
         });
   }
 }*/
+
+class Wrapper extends StatelessWidget {
+  const Wrapper({Key key, @required this.userSnapshot}) : super(key: key);
+  final AsyncSnapshot<Userre> userSnapshot;
+
+  @override
+  Widget build(BuildContext context) {
+    if (userSnapshot.connectionState == ConnectionState.active) {
+      return userSnapshot.hasData ? HomePage() : LandingPage();
+    }
+    return Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+}

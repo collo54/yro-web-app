@@ -4,6 +4,14 @@
     "indexes": "api_keys.dart"
   },
   "hosting": {
+    "headers": [ {
+      "source":  "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
+      "headers": [ {
+        "key": "Access-Control-Allow-header",
+        "value": "Authorization"
+      } ]
+    } ],
+  
     "public": "public",
     "ignore": [
       "firebase.json",

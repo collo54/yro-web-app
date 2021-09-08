@@ -15,6 +15,7 @@ class APIService {
         'Authorization': 'Basic ${api.apikey}',
       },
     );
+    //response.headers == const {};
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final accessToken = data['access_token'];
@@ -22,8 +23,8 @@ class APIService {
         return accessToken;
       }
     }
-    //print(
-    // 'Request $url failed\nResponse: ${response.statusCode} ${response.reasonPhrase}');
+    print(
+        'Request $url failed\nResponse: ${response.statusCode} ${response.reasonPhrase}');
     throw response;
   }
 }

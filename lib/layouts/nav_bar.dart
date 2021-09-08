@@ -47,11 +47,11 @@ class DesktopNavbar extends StatelessWidget {
                   children: <Widget>[
                     GestureDetector(
                       child: Text(
-                        "Home",
+                        "LandingPage",
                         style: TextStyle(color: Colors.black87, fontSize: 20),
                       ),
                       onTap: () {
-                        Navigator.of(context).pushNamed('/Home');
+                        Navigator.of(context).pushNamed('/LandingPage');
                       },
                     ),
                     SizedBox(
@@ -63,7 +63,7 @@ class DesktopNavbar extends StatelessWidget {
                         style: TextStyle(color: Colors.black87, fontSize: 20),
                       ),
                       onTap: () {
-                        Navigator.of(context).pushNamed('/Aboutus');
+                        Navigator.of(context).pushNamed('/AboutusPage');
                       },
                     ),
                     SizedBox(
@@ -123,11 +123,11 @@ class MobileNavbar extends StatelessWidget {
                   children: <Widget>[
                     GestureDetector(
                       child: Text(
-                        "Home",
-                        style: TextStyle(color: Colors.white),
+                        "landingPage",
+                        style: TextStyle(color: Colors.red),
                       ),
                       onTap: () {
-                        Navigator.of(context).pushNamed('/Home');
+                        Navigator.of(context).pushNamed('/LandingPage');
                       },
                     ),
                     SizedBox(
@@ -139,7 +139,7 @@ class MobileNavbar extends StatelessWidget {
                         style: TextStyle(color: Colors.white),
                       ),
                       onTap: () {
-                        Navigator.of(context).pushNamed('/Aboutus');
+                        Navigator.pushNamed(context, '/AboutusPage');
                       },
                     ),
                     SizedBox(

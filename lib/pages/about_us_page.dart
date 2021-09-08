@@ -4,11 +4,11 @@ import 'package:yro/layouts/avatar_layout.dart';
 //import 'package:yro/layouts/avatar_content.dart';
 import 'package:yro/layouts/sign_out_content.dart';
 
-class HomePage extends StatelessWidget {
+class AboutUsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal[100],
+      backgroundColor: Colors.green[100],
       body: SingleChildScrollView(
         child: Column(
           children: [
