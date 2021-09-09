@@ -33,7 +33,7 @@ class AvatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
-      preferredSize: Size.fromHeight(130.0),
+      preferredSize: Size.fromHeight(50.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -53,9 +53,9 @@ class AvatorWidget extends StatelessWidget {
         final avatarReference = snapshot.data;
         return Avatar(
           photoUrl: avatarReference?.downloadUrl,
-          radius: 50,
-          borderColor: Colors.black54,
-          borderWidth: 2.0,
+          radius: 40,
+          borderColor: Colors.blueGrey[100],
+          borderWidth: 1.0,
           onPressed: () => _chooseAvatar(context),
         );
       },

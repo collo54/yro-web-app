@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yro/layouts/Nav_bar.dart';
-import 'package:yro/layouts/avatar_layout.dart';
-//import 'package:yro/layouts/avatar_content.dart';
+import 'package:yro/layouts/balance_layout.dart';
 import 'package:yro/layouts/sign_out_content.dart';
 
 class AboutUsPage extends StatelessWidget {
@@ -12,9 +10,8 @@ class AboutUsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Navbar(),
+            BalanceLayout(),
             SignOutContent(),
-            AvatorLayout(),
           ],
         ),
       ),
