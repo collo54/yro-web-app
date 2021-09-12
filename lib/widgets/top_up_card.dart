@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-class TopNeuCard extends StatelessWidget {
+class TopUpCard extends StatelessWidget {
   final String balance;
   final String income;
   final String expense;
+  final VoidCallback onPressed;
 
-  TopNeuCard({
+  TopUpCard({
     @required this.balance,
     @required this.expense,
     @required this.income,
+    this.onPressed,
   });
 
   @override
@@ -16,7 +18,7 @@ class TopNeuCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Container(
-        height: 200,
+        height: 300,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,16 +36,19 @@ class TopNeuCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.grey[200],
-                          ),
-                          child: Center(
-                            child: Icon(
-                              Icons.arrow_upward,
-                              color: Colors.green,
+                        InkWell(
+                          onTap: onPressed,
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey[200],
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.arrow_upward,
+                                color: Colors.green,
+                              ),
                             ),
                           ),
                         ),

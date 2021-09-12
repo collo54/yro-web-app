@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/pages/home_page.dart';
 import 'package:yro/pages/landing_page.dart';
-import 'package:yro/services/AuthService.dart';
-import 'package:yro/services/firebase_storage_service.dart';
-import 'package:yro/services/firestore_service.dart';
+//import 'package:yro/services/AuthService.dart';
+//import 'package:yro/services/firebase_storage_service.dart';
+//import 'package:yro/services/firestore_service.dart';
+//import 'package:provider/provider.dart';
 
 /*class Wrapper extends StatelessWidget {
   @override

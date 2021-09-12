@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:yro/layouts/add_firestoredata.dart';
 import 'package:yro/widgets/avator_widget.dart';
-import 'package:yro/widgets/top_up_card.dart';
+//import 'package:yro/widgets/balance_card.dart';
+import 'package:yro/widgets/balance_widget.dart';
 
-class BalanceLayout extends StatelessWidget {
+class BalanceFirestore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -26,19 +28,15 @@ class DesktopNavbar extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Container(
-            height: 300,
-            width: 1400,
-            child: TopUpCard(
-              balance: '2000',
-              income: '100',
-              expense: '50',
-            ),
-          ),
+          child: BalanceWidget(),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
           child: AvatorWidget(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+          child: AddFirestoreData(),
         ),
       ],
     );
@@ -52,19 +50,15 @@ class MobileNavbar extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Container(
-            height: 300,
-            width: 1400,
-            child: TopUpCard(
-              balance: '5000',
-              expense: '150',
-              income: '200',
-            ),
-          ),
+          child: BalanceWidget(),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
           child: AvatorWidget(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+          child: AddFirestoreData(),
         ),
       ],
     );

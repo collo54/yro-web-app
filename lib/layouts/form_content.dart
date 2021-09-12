@@ -16,7 +16,7 @@ class Formcontent extends StatelessWidget {
               height: 50,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10.0, bottom: 1),
+              padding: const EdgeInsets.all(20),
               child: FormPage(),
             ),
             SizedBox(
