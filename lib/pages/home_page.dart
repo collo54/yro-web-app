@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yro/layouts/Nav_bar.dart';
-import 'package:yro/layouts/balance_firestore.dart';
 import 'package:yro/layouts/balance_layout.dart';
 import 'package:yro/layouts/sign_out_content.dart';
+import 'package:yro/widgets/balance_widget.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
             Navbar(),
             SignOutContent(),
             BalanceLayout(),
-            BalanceFirestore(),
+            BalanceWidget(),
           ],
         ),
       ),

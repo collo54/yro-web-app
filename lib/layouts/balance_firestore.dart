@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yro/layouts/add_firestoredata.dart';
-import 'package:yro/widgets/avator_widget.dart';
+
 //import 'package:yro/widgets/balance_card.dart';
 import 'package:yro/widgets/balance_widget.dart';
 
@@ -30,14 +30,6 @@ class DesktopNavbar extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: BalanceWidget(),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-          child: AvatorWidget(),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-          child: AddFirestoreData(),
-        ),
       ],
     );
   }
@@ -51,14 +43,6 @@ class MobileNavbar extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: BalanceWidget(),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-          child: AvatorWidget(),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-          child: AddFirestoreData(),
         ),
       ],
     );

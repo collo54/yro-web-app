@@ -6,6 +6,8 @@ import 'package:yro/models/contributor_model.dart';
 import 'package:yro/services/firestore_path.dart';
 import 'package:flutter/foundation.dart';
 
+String documentIdFromCurrentDate() => DateTime.now().toIso8601String();
+
 class FirestoreService {
   FirestoreService({@required this.uid}) : assert(uid != null);
   final String uid;
@@ -27,7 +29,7 @@ class FirestoreService {
 
   Future<void> createContibutor(Contributor contributor) async {
     await _set(
-        path: FirestorePath.contributor(uid, 'contributor_a'),
+        path: FirestorePath.contributor(uid, documentIdFromCurrentDate()),
         data: contributor.toMap());
   }
 

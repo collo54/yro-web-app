@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yro/models/contributor_model.dart';
+import 'package:yro/pages/add_contributions_page.dart';
 import 'package:yro/services/firestore_service.dart';
 
 class AddFirestoreData extends StatelessWidget {
@@ -21,13 +22,6 @@ class AddFirestoreData extends StatelessWidget {
 }
 
 class DesktopNavbar extends StatelessWidget {
-  Future<void> _createContributor(BuildContext context) async {
-    final firestoreservice =
-        Provider.of<FirestoreService>(context, listen: false);
-    await firestoreservice.createContibutor(
-        Contributor(name: 'guderian', contributionsPerMonth: 1000));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -36,7 +30,8 @@ class DesktopNavbar extends StatelessWidget {
         MaterialButton(
           color: Colors.indigo[100],
           shape: CircleBorder(side: BorderSide.none),
-          onPressed: () => _createContributor(context),
+          onPressed: () =>
+              AddContributionsPage.show(context), //_createContributor(context),
           child: Padding(
             padding: const EdgeInsets.all(25),
             child: Icon(
@@ -51,13 +46,6 @@ class DesktopNavbar extends StatelessWidget {
 }
 
 class MobileNavbar extends StatelessWidget {
-  Future<void> _createContributor(BuildContext context) async {
-    final firestoreservice =
-        Provider.of<FirestoreService>(context, listen: false);
-    await firestoreservice.createContibutor(
-        Contributor(name: 'lonzi', contributionsPerMonth: 400));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -66,7 +54,8 @@ class MobileNavbar extends StatelessWidget {
         MaterialButton(
           color: Colors.indigo[100],
           shape: CircleBorder(side: BorderSide.none),
-          onPressed: () => _createContributor(context),
+          onPressed: () =>
+              AddContributionsPage.show(context), //_createContributor(context),
           child: Padding(
             padding: const EdgeInsets.all(25),
             child: Icon(

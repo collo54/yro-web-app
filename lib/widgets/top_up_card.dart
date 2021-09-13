@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 
 class TopUpCard extends StatelessWidget {
   final String balance;
-  final String income;
-  final String expense;
-  final VoidCallback onPressed;
-
-  TopUpCard({
-    @required this.balance,
-    @required this.expense,
-    @required this.income,
-    this.onPressed,
-  });
+  final String deposited;
+  final String withdrawn;
+  final String name;
+  TopUpCard(
+      {@required this.balance,
+      @required this.deposited,
+      @required this.withdrawn,
+      @required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +21,8 @@ class TopUpCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Text(name,
+                  style: TextStyle(color: Colors.grey[500], fontSize: 16)),
               Text('B A L A N C E',
                   style: TextStyle(color: Colors.grey[500], fontSize: 16)),
               Text(
@@ -36,19 +36,16 @@ class TopUpCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        InkWell(
-                          onTap: onPressed,
-                          child: Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.grey[200],
-                            ),
-                            child: Center(
-                              child: Icon(
-                                Icons.arrow_upward,
-                                color: Colors.green,
-                              ),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.grey[200],
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.arrow_upward,
+                              color: Colors.green,
                             ),
                           ),
                         ),
@@ -58,12 +55,12 @@ class TopUpCard extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Income',
+                            Text('deposited',
                                 style: TextStyle(color: Colors.grey[500])),
                             SizedBox(
                               height: 5,
                             ),
-                            Text('\$' + income,
+                            Text('\$' + deposited,
                                 style: TextStyle(
                                     color: Colors.grey[600],
                                     fontWeight: FontWeight.bold)),
@@ -92,12 +89,12 @@ class TopUpCard extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Expense',
+                            Text('withdrawn',
                                 style: TextStyle(color: Colors.grey[500])),
                             SizedBox(
                               height: 5,
                             ),
-                            Text('\$' + expense,
+                            Text('\$' + withdrawn,
                                 style: TextStyle(
                                     color: Colors.grey[600],
                                     fontWeight: FontWeight.bold)),
@@ -130,3 +127,4 @@ class TopUpCard extends StatelessWidget {
     );
   }
 }
+ // ignore: non_constant_iden
