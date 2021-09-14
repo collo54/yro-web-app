@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yro/layouts/add_firestoredata.dart';
 import 'package:yro/models/contributor_model.dart';
+import 'package:yro/pages/add_contributions_page.dart';
 import 'package:yro/services/firestore_service.dart';
 import 'package:yro/widgets/avator_widget.dart';
 import 'package:yro/widgets/top_up_card.dart';
@@ -21,6 +22,11 @@ class BalanceWidget extends StatelessWidget {
     );
   }
 
+  Future<void> _delete(BuildContext context, Contributor contributor) async {
+    final database = Provider.of<FirestoreService>(context, listen: false);
+    await database.deleteContibutor(contributor);
+  }
+
   Widget _buildUserInfo({BuildContext context}) {
     final firestoreservice =
         Provider.of<FirestoreService>(context, listen: false);
@@ -33,33 +39,37 @@ class BalanceWidget extends StatelessWidget {
           if (contributor.isNotEmpty) {
             final children = contributor
                 .map(
-                  (contribution) => Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Container(
-                          height: 300,
-                          width: 1400,
-                          child: TopUpCard(
-                            balance:
-                                contribution.contributionPerMonth.toString(),
-                            deposited: contribution.deposited.toString(),
-                            withdrawn: contribution.withdrawn.toString(),
-                            name: contribution.name,
+                  (contribution) => Dismissible(
+                    key: Key('contribution-${contribution.id}'),
+                    background: Container(color: Colors.red),
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (direction) => _delete(context, contribution),
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            height: 300,
+                            width: 1400,
+                            child: TopUpCard(
+                              contributor: contribution,
+                              onTap: () => AddContributionsPage.show(context,
+                                  contributor: contribution),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 40, horizontal: 30),
-                        child: AvatorWidget(),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 40, horizontal: 20),
-                        child: AddFirestoreData(),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 40, horizontal: 30),
+                          child: AvatorWidget(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 40, horizontal: 20),
+                          child: AddFirestoreData(),
+                        ),
+                      ],
+                    ),
                   ),
                 )
                 .toList();
@@ -75,10 +85,13 @@ class BalanceWidget extends StatelessWidget {
                   height: 300,
                   width: 1400,
                   child: TopUpCard(
-                    balance: '0',
-                    deposited: '0',
-                    withdrawn: '0',
-                    name: ' enter name',
+                    contributor: Contributor(
+                        id: '0',
+                        name: 'name',
+                        contributionPerMonth: 0,
+                        deposited: 0,
+                        withdrawn: 0),
+                    onTap: () {},
                   ),
                 ),
               ),

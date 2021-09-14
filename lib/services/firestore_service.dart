@@ -17,8 +17,18 @@ class FirestoreService {
     final reference = FirebaseFirestore.instance.collection(path);
     final snapshots = reference.snapshots();
     return snapshots.map((snapshot) => snapshot.docs
-        .map((snapshot) => Contributor.fromMap(snapshot.data()))
+        .map((
+          snapshot,
+        ) =>
+            Contributor.fromMap(snapshot.data(), snapshot.id))
         .toList());
+  }
+
+  Future<void> deleteContibutor(Contributor contributor) async {
+    final path = FirestorePath.contributor(uid, contributor.id);
+    final reference = FirebaseFirestore.instance.doc(path);
+    print('delete: $path');
+    await reference.delete();
   }
 
   Future<void> _set({String path, Map<String, dynamic> data}) async {
@@ -27,9 +37,9 @@ class FirestoreService {
     await reference.set(data);
   }
 
-  Future<void> createContibutor(Contributor contributor) async {
+  Future<void> setContibutor(Contributor contributor) async {
     await _set(
-        path: FirestorePath.contributor(uid, documentIdFromCurrentDate()),
+        path: FirestorePath.contributor(uid, contributor.id),
         data: contributor.toMap());
   }
 

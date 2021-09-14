@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yro/models/contributor_model.dart';
 import 'package:yro/widgets/avator_widget.dart';
 import 'package:yro/widgets/top_up_card.dart';
 
@@ -30,10 +31,12 @@ class DesktopNavbar extends StatelessWidget {
             height: 300,
             width: 1400,
             child: TopUpCard(
-              balance: '2000',
-              name: 'meme',
-              withdrawn: '50',
-              deposited: '500',
+              contributor: Contributor(
+                  name: 'name',
+                  contributionPerMonth: 0,
+                  deposited: 0,
+                  withdrawn: 0),
+              onTap: () {},
             ),
           ),
         ),
@@ -57,10 +60,13 @@ class MobileNavbar extends StatelessWidget {
             height: 300,
             width: 1400,
             child: TopUpCard(
-              balance: '2000',
-              name: 'meme',
-              withdrawn: '50',
-              deposited: '500',
+              contributor: Contributor(
+                  id: '0',
+                  name: 'name',
+                  contributionPerMonth: 0,
+                  deposited: 0,
+                  withdrawn: 0),
+              onTap: () {},
             ),
           ),
         ),

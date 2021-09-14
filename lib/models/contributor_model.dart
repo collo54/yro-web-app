@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 class Contributor {
   Contributor(
       {@required this.name,
+      @required this.id,
       @required this.contributionPerMonth,
       @required this.deposited,
       @required this.withdrawn});
@@ -10,8 +11,9 @@ class Contributor {
   final int contributionPerMonth;
   final int deposited;
   final int withdrawn;
+  final String id;
 
-  factory Contributor.fromMap(Map<String, dynamic> data) {
+  factory Contributor.fromMap(Map<String, dynamic> data, String id) {
     if (data == null) {
       return null;
     }
@@ -23,6 +25,7 @@ class Contributor {
       return null;
     }
     return Contributor(
+        id: id,
         name: name,
         contributionPerMonth: contributionPerMonth,
         deposited: deposited,

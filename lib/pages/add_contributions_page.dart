@@ -5,10 +5,16 @@ import 'package:yro/pages/home_page.dart';
 import 'package:yro/services/firestore_service.dart';
 
 class AddContributionsPage extends StatefulWidget {
-  static Future<void> show(BuildContext context) async {
+  const AddContributionsPage({Key key, this.contributor}) : super(key: key);
+  final Contributor contributor;
+
+  static Future<void> show(BuildContext context,
+      {Contributor contributor}) async {
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => AddContributionsPage(),
+        builder: (context) => AddContributionsPage(
+          contributor: contributor,
+        ),
         fullscreenDialog: true,
       ),
     );
@@ -26,6 +32,17 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
   int _deposited;
   int _withdrawn;
 
+  @override
+  void initState() {
+    super.initState();
+    if (widget.contributor != null) {
+      _name = widget.contributor.name;
+      _contributionpermonth = widget.contributor.contributionPerMonth;
+      _deposited = widget.contributor.deposited;
+      _withdrawn = widget.contributor.withdrawn;
+    }
+  }
+
   bool _validateAndSaveForm() {
     final form = _formKey.currentState;
     if (form.validate()) {
@@ -37,14 +54,16 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
 
   Future<void> _submit() async {
     if (_validateAndSaveForm()) {
+      final id = widget.contributor?.id ?? documentIdFromCurrentDate();
       final contributor = Contributor(
+          id: id,
           name: _name,
           contributionPerMonth: _contributionpermonth,
           deposited: _deposited,
           withdrawn: _withdrawn);
       final firestoreservice =
           Provider.of<FirestoreService>(context, listen: false);
-      await firestoreservice.createContibutor(contributor);
+      await firestoreservice.setContibutor(contributor);
       await Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => HomePage(),
@@ -59,7 +78,9 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 2.0,
-        title: Text('New Contribution'),
+        title: Text(widget.contributor == null
+            ? 'New Contribution'
+            : 'edit contribution'),
         actions: <Widget>[
           TextButton(
             child: Text(
@@ -105,10 +126,10 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
         height: 16,
       ),
       TextFormField(
-        decoration: InputDecoration.collapsed(
-            hintText: 'name',
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16)))),
+        decoration: InputDecoration(
+          labelText: 'name',
+        ),
+        initialValue: _name,
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'enter your name';
@@ -123,10 +144,11 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
         height: 8,
       ),
       TextFormField(
-        decoration: InputDecoration.collapsed(
-            hintText: 'contibution per month',
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16)))),
+        decoration: InputDecoration(
+          labelText: 'contibution per month',
+        ),
+        initialValue:
+            _contributionpermonth != null ? '$_contributionpermonth' : null,
         keyboardType: TextInputType.numberWithOptions(
           signed: false,
           decimal: false,
@@ -139,10 +161,10 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
         height: 8,
       ),
       TextFormField(
-        decoration: InputDecoration.collapsed(
-            hintText: 'deposited this month',
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16)))),
+        decoration: InputDecoration(
+          labelText: 'deposited this month',
+        ),
+        initialValue: _deposited != null ? '$_deposited' : null,
         keyboardType: TextInputType.numberWithOptions(
           signed: false,
           decimal: false,
@@ -155,10 +177,10 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
         height: 8,
       ),
       TextFormField(
-        decoration: InputDecoration.collapsed(
-            hintText: 'withdrawn this month',
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16)))),
+        decoration: InputDecoration(
+          labelText: 'withdrawn this month',
+        ),
+        initialValue: _withdrawn != null ? '$_withdrawn' : null,
         keyboardType: TextInputType.numberWithOptions(
           signed: false,
           decimal: false,
