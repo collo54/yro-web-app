@@ -95,18 +95,21 @@ class DesktopNavbar extends StatelessWidget {
 class MobileNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          height: 420,
-          width: 800,
-          child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
-          //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          child: Container(
+    return Container(
+      height: 400,
+      child: Stack(
+        fit: StackFit.expand,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        children: [
+          Container(
+            height: 420,
+            width: 800,
+            child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
+            //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
+            // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
             child: Column(children: <Widget>[
               Text(
                 "  Y  R  O ",
@@ -116,51 +119,51 @@ class MobileNavbar extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 30),
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    GestureDetector(
-                      child: Text(
-                        "landingPage",
-                        style: TextStyle(color: Colors.red),
-                      ),
-                      onTap: () {
-                        Navigator.of(context).pushNamed('/LandingPage');
-                      },
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                    child: Text(
+                      "landingPage",
+                      style: TextStyle(color: Colors.red),
                     ),
-                    SizedBox(
-                      width: 20,
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/LandingPage');
+                    },
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  GestureDetector(
+                    child: Text(
+                      "About Us",
+                      style: TextStyle(color: Colors.white),
                     ),
-                    GestureDetector(
-                      child: Text(
-                        "About Us",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onTap: () {
-                        Navigator.pushNamed(context, '/AboutusPage');
-                      },
+                    onTap: () {
+                      Navigator.pushNamed(context, '/AboutusPage');
+                    },
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  GestureDetector(
+                    child: Text(
+                      "Portfolio",
+                      style: TextStyle(color: Colors.white),
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    GestureDetector(
-                      child: Text(
-                        "Portfolio",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onTap: () {
-                        Navigator.of(context).pushNamed('/Portfoliopage');
-                      },
-                    ),
-                  ],
-                ),
-              )
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/Portfoliopage');
+                    },
+                  ),
+                ],
+              ),
             ]),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

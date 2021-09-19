@@ -109,7 +109,7 @@ class BalanceWidget extends StatelessWidget {
           );
         }
         if (snapshot.hasError) {
-          return Center(child: Text('Some error occurred'));
+          return Center(child: Text('error occurred'));
         }
         return Center(child: CircularProgressIndicator());
       },

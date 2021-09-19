@@ -46,14 +46,14 @@ class AvatorWidget extends StatelessWidget {
 
   Widget _buildUserInfo({BuildContext context}) {
     final database = Provider.of<FirestoreService>(context, listen: false);
-    // final user = Provider.of<Userre>(context, listen: false);
+
     return StreamBuilder<AvatarReference>(
       stream: database.avatarReferenceStream(),
       builder: (context, snapshot) {
         final avatarReference = snapshot.data;
         return Avatar(
           photoUrl: avatarReference?.downloadUrl,
-          radius: 40,
+          radius: 35,
           borderColor: Colors.blueGrey[100],
           borderWidth: 1.0,
           onPressed: () => _chooseAvatar(context),

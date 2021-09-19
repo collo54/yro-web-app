@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yro/pages/add_contributions_page.dart';
+import 'package:yro/pages/chat_firebase.dart';
 
-class AddFirestoreData extends StatelessWidget {
+class AddMessageFirestore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -27,12 +27,11 @@ class DesktopNavbar extends StatelessWidget {
         MaterialButton(
           color: Colors.indigo[100],
           shape: CircleBorder(side: BorderSide.none),
-          onPressed: () =>
-              AddContributionsPage.show(context), //_createContributor(context),
+          onPressed: () => ChatFirebase.show(context),
           child: Padding(
             padding: const EdgeInsets.all(25),
             child: Icon(
-              Icons.add,
+              Icons.message_rounded,
               color: Colors.white,
             ),
           ),
@@ -52,11 +51,11 @@ class MobileNavbar extends StatelessWidget {
           color: Colors.indigo[100],
           shape: CircleBorder(side: BorderSide.none),
           onPressed: () =>
-              AddContributionsPage.show(context), //_createContributor(context),
+              ChatFirebase.show(context), //_createContributor(context),
           child: Padding(
             padding: const EdgeInsets.all(25),
             child: Icon(
-              Icons.add,
+              Icons.message_rounded,
               color: Colors.white,
             ),
           ),

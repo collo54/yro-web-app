@@ -87,7 +87,7 @@ class MobileNavbar extends StatelessWidget {
           shape: CircleBorder(side: BorderSide.none),
           onPressed: () => _signInAnonymously(context),
           child: Padding(
-            padding: const EdgeInsets.all(25),
+            padding: const EdgeInsets.all(18),
             child: Icon(
               Icons.forward,
               color: Colors.white,
