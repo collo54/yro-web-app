@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yro/constants/colors.dart';
 import 'package:yro/models/messager_model.dart';
 import 'package:yro/services/firestore_service.dart';
-import 'package:yro/widgets/avator_widget.dart';
+import 'package:yro/widgets/avatar.dart';
 
 class Chatcontent extends StatelessWidget {
   final messgeList = Messager;
@@ -12,7 +13,7 @@ class Chatcontent extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
           decoration: BoxDecoration(
-              color: Colors.amber[100],
+              color: kPrimaryLight,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -46,7 +47,17 @@ class Chatcontent extends StatelessWidget {
             final children = messager
                 .map((messager) => Row(
                       children: [
-                        AvatorWidget(),
+                        PreferredSize(
+                          preferredSize: Size.fromHeight(50.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Avatar(
+                                  photoUrl: messager?.downloadUrl, radius: 30),
+                              SizedBox(height: 16),
+                            ],
+                          ),
+                        ),
                         SizedBox(width: 10),
                         Flexible(
                           child: Column(

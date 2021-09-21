@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,9 @@ class AvatorWidget extends StatelessWidget {
         final downloadUrl = await storage.uploadAvatar(file: file);
         // 3. Save url to Firestore
         final database = Provider.of<FirestoreService>(context, listen: false);
-        await database.setAvatarReference(AvatarReference(downloadUrl));
+        final userId = FirebaseAuth.instance.currentUser.uid;
+        await database.setAvatarReference(
+            AvatarReference(downloadUrl: downloadUrl, userId: userId));
         // 4. (optional) delete local file as no longer needed
         await file.delete();
       }

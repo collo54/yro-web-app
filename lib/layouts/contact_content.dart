@@ -7,14 +7,14 @@ class ContactContent extends StatelessWidget {
   List<Widget> pageChildren(double width) {
     return <Widget>[
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
         child: Container(
           width: width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Text(
                 "contact us",

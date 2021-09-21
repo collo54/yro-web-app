@@ -7,13 +7,13 @@ class Messager {
       @required this.name,
       @required this.userId,
       @required this.time,
-      @required this.timeZone})
+      this.downloadUrl})
       : assert(userId != null);
   final String message;
   final int timeStamp;
   final String name;
   final String userId;
-  final String timeZone;
+  final String downloadUrl;
   final String time;
 
   factory Messager.fromMap(Map<String, dynamic> data) {
@@ -24,8 +24,9 @@ class Messager {
     final int timeStamp = data['timeStamp'];
     final String userId = data['userId'];
     final String message = data['message'];
-    final String timeZone = data['timeZone'];
+    final String downloadUrl = data['downloadUrl'];
     final String time = data['time'];
+
     if (message == null) {
       return null;
     }
@@ -35,17 +36,17 @@ class Messager {
       message: message,
       timeStamp: timeStamp,
       userId: userId,
-      timeZone: timeZone,
+      downloadUrl: downloadUrl,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
+      'downloadUrl': downloadUrl,
       'name': name,
       'userId': userId,
       'message': message,
       'timeStamp': timeStamp,
-      'timeZone': timeZone,
       'time': time,
     };
   }

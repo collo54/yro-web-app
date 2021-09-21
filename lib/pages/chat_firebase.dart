@@ -54,46 +54,36 @@ class _ChatFirebaseState extends State<ChatFirebase> {
     if (_validateAndSaveForm()) {
       final userId = FirebaseAuth.instance.currentUser.uid;
       final timeStamp = DateTime.now().millisecondsSinceEpoch;
-      final timeZone = DateTime.now().timeZoneName;
       final time = DateTime.now().toIso8601String();
-      print(timeZone);
       final messager = Messager(
           time: time,
           message: _message,
-          timeZone: timeZone,
           timeStamp: timeStamp,
           name: _name,
           userId: userId);
       final firestoreservice =
           Provider.of<FirestoreService>(context, listen: false);
       await firestoreservice.setMessage(messager);
-      /* await Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-          fullscreenDialog: true,
-        ),);*/
-
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 2.0,
-        title: Text(widget.messager == null ? 'New Chat' : ' chat'),
-        actions: <Widget>[
-          TextButton(
-            child: Text(
-              'Save',
-              style: TextStyle(fontSize: 18, color: Colors.white),
-            ),
-            onPressed: _submit,
-          ),
-        ],
-      ),
       body: _buildContents(),
       backgroundColor: Colors.grey[200],
+      floatingActionButton: MaterialButton(
+        color: Colors.indigo[700],
+        shape: CircleBorder(side: BorderSide.none),
+        onPressed: _submit,
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Icon(
+            Icons.send,
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 

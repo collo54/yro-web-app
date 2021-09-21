@@ -32,7 +32,7 @@ class FirebaseStorageService {
     final snapshot = uploadTask.snapshot;
     //if (snapshot.error != null) {
     //  print('upload error code: ${snapshot.error}');
-    //  throw snapshot.error;
+    // throw snapshot.error;
     // }
     // Url used to download file/image
     final downloadUrl = await snapshot.ref.getDownloadURL();

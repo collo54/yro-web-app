@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yro/layouts/add_firestoredata.dart';
-
-//import 'package:yro/widgets/balance_card.dart';
 import 'package:yro/widgets/balance_widget.dart';
 
 class BalanceFirestore extends StatelessWidget {

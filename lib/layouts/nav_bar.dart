@@ -112,7 +112,7 @@ class MobileNavbar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
             child: Column(children: <Widget>[
               Text(
-                "  Y  R  O ",
+                "  ",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -127,7 +127,7 @@ class MobileNavbar extends StatelessWidget {
                 children: <Widget>[
                   GestureDetector(
                     child: Text(
-                      "landingPage",
+                      "",
                       style: TextStyle(color: Colors.red),
                     ),
                     onTap: () {
@@ -139,7 +139,7 @@ class MobileNavbar extends StatelessWidget {
                   ),
                   GestureDetector(
                     child: Text(
-                      "About Us",
+                      "",
                       style: TextStyle(color: Colors.white),
                     ),
                     onTap: () {
@@ -151,7 +151,7 @@ class MobileNavbar extends StatelessWidget {
                   ),
                   GestureDetector(
                     child: Text(
-                      "Portfolio",
+                      "",
                       style: TextStyle(color: Colors.white),
                     ),
                     onTap: () {
