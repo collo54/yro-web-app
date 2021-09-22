@@ -1,12 +1,12 @@
-import 'package:flutter/foundation.dart';
+//import 'package:flutter/foundation.dart';
 
 class Messager {
   Messager(
-      {@required this.message,
-      @required this.timeStamp,
-      @required this.name,
-      @required this.userId,
-      @required this.time,
+      {this.message,
+      this.timeStamp,
+      this.name,
+      this.userId,
+      this.time,
       this.downloadUrl})
       : assert(userId != null);
   final String message;

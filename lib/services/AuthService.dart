@@ -17,6 +17,8 @@ class AuthService {
     }
     return Userre(
       uid: user.uid,
+      photoUrl: user.photoURL,
+      displayName: user.displayName,
     );
   }
 

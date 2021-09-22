@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yro/constants/colors.dart';
 import 'package:yro/layouts/chat_content.dart';
 import 'package:yro/models/messager_model.dart';
 import 'package:yro/services/firestore_service.dart';
@@ -70,8 +71,12 @@ class _ChatFirebaseState extends State<ChatFirebase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildContents(),
-      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        elevation: 2.0,
+        title: Text(widget.messager == null ? 'New Chat' : 'chat'),
+      ),
+      body: Center(child: _buildContents()),
+      backgroundColor: kPrimaryLight,
       floatingActionButton: MaterialButton(
         color: Colors.indigo[700],
         shape: CircleBorder(side: BorderSide.none),
@@ -88,16 +93,14 @@ class _ChatFirebaseState extends State<ChatFirebase> {
   }
 
   Widget _buildContents() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(height: 400, child: Chatcontent()),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: _buildForm(),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        Expanded(child: Container(child: Chatcontent())),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 7, left: 25, right: 25),
+          child: _buildForm(),
+        ),
+      ],
     );
   }
 
@@ -115,7 +118,13 @@ class _ChatFirebaseState extends State<ChatFirebase> {
     return [
       TextFormField(
         decoration: InputDecoration(
+          fillColor: kGreyLight.withOpacity(0.2),
+          filled: true,
           labelText: 'name',
+          contentPadding: EdgeInsets.all(15),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide.none),
         ),
         initialValue: _name != null ? '$_name' : null,
         validator: (value) {
@@ -129,11 +138,17 @@ class _ChatFirebaseState extends State<ChatFirebase> {
         textAlign: TextAlign.center,
       ),
       SizedBox(
-        height: 8,
+        height: 10,
       ),
       TextFormField(
         decoration: InputDecoration(
-          labelText: 'enter chat message',
+          fillColor: kGreyLight.withOpacity(0.2),
+          filled: true,
+          labelText: 'enter chat message ...',
+          contentPadding: EdgeInsets.all(15),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: BorderSide.none),
         ),
         initialValue: _message,
         validator: (value) {
@@ -145,9 +160,6 @@ class _ChatFirebaseState extends State<ChatFirebase> {
         onSaved: (value) => _message = value,
         maxLines: 2,
         textAlign: TextAlign.start,
-      ),
-      SizedBox(
-        height: 16,
       ),
     ];
   }
