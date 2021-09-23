@@ -201,7 +201,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
           height: 15,
         ),
         MaterialButton(
-          color: kGreyLight,
+          color: Colors.white70,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(13.0)),
           ),
@@ -215,14 +215,22 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
             }
           },
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 18.0, horizontal: 25.0),
-            child: Text(
-              "Sign Up with google",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontStyle: FontStyle.normal),
+            padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/google-logo.png"),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Sign Up with google",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontStyle: FontStyle.normal),
+                ),
+              ],
             ),
           ),
         ),

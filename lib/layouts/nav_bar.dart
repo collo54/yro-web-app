@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 class Navbar extends StatelessWidget {
   @override
@@ -25,7 +26,10 @@ class DesktopNavbar extends StatelessWidget {
         Container(
           height: 500,
           width: 1400,
-          child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
+          child: RiveAnimation.asset(
+            'assets/rive/52-69-marty-animation.riv',
+            fit: BoxFit.cover,
+          ), // Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
           // Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
           // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
         ),
@@ -104,7 +108,10 @@ class MobileNavbar extends StatelessWidget {
           Container(
             height: 420,
             width: 800,
-            child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
+            child: RiveAnimation.asset(
+              'assets/rive/52-69-marty-animation.riv',
+              fit: BoxFit.cover,
+            ), //Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
             //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
             // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
           ),
