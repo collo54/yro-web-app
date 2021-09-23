@@ -1,0 +1,34 @@
+{
+  "project_info": {
+    "project_number": "505902426218",
+    "project_id": "yroorg",
+    "storage_bucket": "yroorg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505902426218:android:b91815997ece266a798213",
+        "android_client_info": {
+          "package_name": "com.yeahkuza.yro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeyxKOzQWR_nOC1FV0yzsY2mSDWL63Yf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505902426218-7s8s5fuhf1n5ff53jhenlv3smdtss86o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
