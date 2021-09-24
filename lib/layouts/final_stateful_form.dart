@@ -17,8 +17,6 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
   String _email;
   String _password;
 
-  final AuthService _auth = AuthService();
-
   void _toogleFormType() {
     setState(() {
       _formType = _formType == EmailSignInFormType.signIn
@@ -39,7 +37,17 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
     }
   }
 
-  void _submit() async {
+  Future<void> _signInWithGoogle(BuildContext context) async {
+    try {
+      final auth = Provider.of<AuthService>(context, listen: false);
+      final user = await auth.signInWithGoogle();
+      print('uid: ${user.uid}');
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  Future<void> _submit() async {
     try {
       if ((_formType == EmailSignInFormType.signIn) &&
           (_validateAndSaveForm())) {
@@ -88,7 +96,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
       Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.white70,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
@@ -201,19 +209,11 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
           height: 15,
         ),
         MaterialButton(
-          color: Colors.white70,
+          color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(13.0)),
           ),
-          onPressed: () async {
-            dynamic usercredential = await _auth.signInWithGoogle();
-            if (usercredential == null) {
-              print('error siging in');
-            } else {
-              print('signed in');
-              print(usercredential.uid);
-            }
-          },
+          onPressed: () => _signInWithGoogle(context),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 30),
             child: Row(
