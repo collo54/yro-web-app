@@ -12,7 +12,40 @@
           "package_name": "com.yeahkuza.yro"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "505902426218-83jc8ctu5vp8etfceffq1560frblcthp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yeahkuza.yro",
+            "certificate_hash": "70e80e2420e5d895985e3e1eeeac0710273fcf5b"
+          }
+        },
+        {
+          "client_id": "505902426218-ebf3io7qu89ld5fi3bgjbjcocff0743c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yeahkuza.yro",
+            "certificate_hash": "6352128d3139bd911e37ecfca6bd87e522153957"
+          }
+        },
+        {
+          "client_id": "505902426218-er16resi8qiqhuf4o5068k45ofgljjh7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yeahkuza.yro",
+            "certificate_hash": "92b1b00b1ae9ba6ffe5d377655cb459e4f8ea00a"
+          }
+        },
+        {
+          "client_id": "505902426218-o7cp22hbv6u8k97s6b2v6vctqv67qjrh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yeahkuza.yro",
+            "certificate_hash": "c502ed599a72419191d3bd2b9f19ecebe3b4c0f9"
+          }
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBeyxKOzQWR_nOC1FV0yzsY2mSDWL63Yf0"

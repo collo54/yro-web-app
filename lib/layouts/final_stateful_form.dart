@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rive/rive.dart';
 import 'package:yro/constants/colors.dart';
 import 'package:yro/services/AuthService.dart';
 
@@ -47,14 +48,14 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
     }
   }
 
-  Future<void> _submit() async {
+  Future<void> _submit(BuildContext context) async {
     try {
       if ((_formType == EmailSignInFormType.signIn) &&
           (_validateAndSaveForm())) {
         print('$_email');
         final auth = Provider.of<AuthService>(context, listen: false);
         await auth.signInWithEmailAndPassword(_email, _password);
-      } else {
+      } else if (_validateAndSaveForm()) {
         print('$_email');
         final auth = Provider.of<AuthService>(context, listen: false);
         await auth.createUserWithEmailAndPassword(_email, _password);
@@ -93,6 +94,16 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
 
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
+      Container(
+        height: 590,
+        width: width,
+        child: RiveAnimation.asset(
+          'assets/rive/52-69-marty-animation.riv',
+          fit: BoxFit.cover,
+        ), //Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
+        //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
+        // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
+      ),
       Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
@@ -154,7 +165,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
           color: Colors.green[700],
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(13.0))),
-          onPressed: _submit,
+          onPressed: () => _submit(context),
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 18.0, horizontal: 25.0),
@@ -258,13 +269,13 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
       ),
       TextFormField(
         validator: (value) {
-          if (value == null || value.isEmpty) {
+          if (value.isEmpty) {
             return 'enter your email';
           }
           return null;
         },
-        initialValue: _email,
-        onSaved: (value) => _email = value,
+        //initialValue: _email,
+        onSaved: (value) => _email = value.trim(),
         style: TextStyle(fontWeight: FontWeight.w600),
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.mail),
@@ -279,13 +290,13 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
       ),
       TextFormField(
         validator: (value) {
-          if (value == null || value.isEmpty) {
+          if (value.isEmpty) {
             return 'enter your password';
           }
           return null;
         },
         onSaved: (value) => _password = value,
-        initialValue: _password,
+        //initialValue: _password,
         obscureText: true,
         style: TextStyle(fontWeight: FontWeight.w600),
         decoration: InputDecoration(

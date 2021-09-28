@@ -14,7 +14,7 @@ class TopUpCard extends StatelessWidget {
       child: Ink(
         height: 300,
         child: InkWell(
-          splashColor: Colors.cyan,
+          splashColor: Colors.white70,
           onTap: onTap,
           child: Center(
             child: Column(
