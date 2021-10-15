@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yro/layouts/ad_stateful_layout.dart';
 import 'package:yro/layouts/add_message_firestore.dart';
 //import 'package:yro/layouts/Nav_bar.dart';
 import 'package:yro/layouts/balance_layout.dart';
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
           children: [
             // Navbar(),
             SignOutContent(),
+            AdStatefulLayout(),
             BalanceLayout(),
             BalanceWidget(),
             AddMessageFirestore(),

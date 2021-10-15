@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yro/models/user_model.dart';
 import 'package:yro/pages/home_page.dart';
 import 'package:yro/pages/landing_page.dart';
+import 'package:yro/widgets/home_stateful.dart';
 //import 'package:yro/services/AuthService.dart';
 //import 'package:yro/services/firebase_storage_service.dart';
 //import 'package:yro/services/firestore_service.dart';
@@ -64,7 +65,8 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (userSnapshot.connectionState == ConnectionState.active) {
-      return userSnapshot.hasData ? HomePage() : LandingPage();
+      return userSnapshot.hasData
+          ? Homestateful() /*HomePage()*/ : LandingPage();
     }
     return Scaffold(
       body: Center(
