@@ -97,7 +97,7 @@ class _ChatFirebaseState extends State<ChatFirebase> {
       children: [
         Expanded(child: Container(child: Chatcontent())),
         Padding(
-          padding: const EdgeInsets.only(bottom: 7, left: 25, right: 25),
+          padding: const EdgeInsets.only(bottom: 50, left: 25, right: 25),
           child: _buildForm(),
         ),
       ],
