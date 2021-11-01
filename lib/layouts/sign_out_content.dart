@@ -34,7 +34,30 @@ class DesktopNavbar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Text(
+        MaterialButton(
+          minWidth: 200,
+          color: Colors.blueGrey,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(25.0))),
+          onPressed: () => _signOut(context),
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Sign out",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontStyle: FontStyle.normal),
+                ),
+              ],
+            ),
+          ),
+        ),
+        /*Text(
           'Sign out',
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -52,7 +75,7 @@ class DesktopNavbar extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-        ),
+        ),*/
       ],
     );
   }
@@ -73,7 +96,7 @@ class MobileNavbar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Text(
+        /*Text(
           'Sign out',
           style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -89,6 +112,29 @@ class MobileNavbar extends StatelessWidget {
             child: Icon(
               Icons.arrow_back_ios_new_sharp,
               color: Colors.white,
+            ),
+          ),
+        ),*/
+        MaterialButton(
+          minWidth: 200,
+          color: Colors.blueGrey,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(25.0))),
+          onPressed: () => _signOut(context),
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Sign out",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontStyle: FontStyle.normal),
+                ),
+              ],
             ),
           ),
         ),

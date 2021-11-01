@@ -66,7 +66,7 @@ class _PhotoLayoutState extends State<Photolayout> {
       Padding(
         padding: const EdgeInsets.only(top: 20, left: 16),
         child: Text(
-          "yro members meeting",
+          "yro team",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
         ),
@@ -74,7 +74,7 @@ class _PhotoLayoutState extends State<Photolayout> {
       Padding(
         padding: const EdgeInsets.only(top: 14, left: 16),
         child: Text(
-          "members meeting",
+          "group photo",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
         ),
@@ -104,7 +104,7 @@ class _PhotoLayoutState extends State<Photolayout> {
       Padding(
         padding: const EdgeInsets.only(top: 20, left: 16),
         child: Text(
-          "yro members meeting",
+          "yro team",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
         ),
@@ -112,7 +112,7 @@ class _PhotoLayoutState extends State<Photolayout> {
       Padding(
         padding: const EdgeInsets.only(top: 14, left: 16),
         child: Text(
-          "members meeting",
+          "casual",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
         ),
@@ -140,7 +140,7 @@ class _PhotoLayoutState extends State<Photolayout> {
       Padding(
         padding: const EdgeInsets.only(top: 20, left: 16),
         child: Text(
-          "yro members meeting",
+          "environment conservation day",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
         ),
@@ -148,7 +148,7 @@ class _PhotoLayoutState extends State<Photolayout> {
       Padding(
         padding: const EdgeInsets.only(top: 14, left: 16),
         child: Text(
-          "members meeting",
+          "group photo",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
         ),
@@ -241,7 +241,7 @@ class _Photo1LayoutState extends State<Photo1layout> {
       Padding(
         padding: const EdgeInsets.only(top: 20, left: 16),
         child: Text(
-          "yro members meeting",
+          "environment conservation day",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
         ),
@@ -249,7 +249,7 @@ class _Photo1LayoutState extends State<Photo1layout> {
       Padding(
         padding: const EdgeInsets.only(top: 14, left: 16),
         child: Text(
-          "members meeting",
+          "top tree planters",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
         ),
@@ -283,7 +283,7 @@ class _Photo1LayoutState extends State<Photo1layout> {
       Padding(
         padding: const EdgeInsets.only(top: 20, left: 16),
         child: Text(
-          "yro members meeting",
+          "conservation day",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
         ),
@@ -291,7 +291,7 @@ class _Photo1LayoutState extends State<Photo1layout> {
       Padding(
         padding: const EdgeInsets.only(top: 14, left: 16),
         child: Text(
-          "members meeting",
+          "members in action",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
         ),
@@ -323,7 +323,7 @@ class _Photo1LayoutState extends State<Photo1layout> {
       Padding(
         padding: const EdgeInsets.only(top: 20, left: 16),
         child: Text(
-          "yro members meeting",
+          "conservation day",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
         ),
@@ -331,7 +331,7 @@ class _Photo1LayoutState extends State<Photo1layout> {
       Padding(
         padding: const EdgeInsets.only(top: 14, left: 16),
         child: Text(
-          "members meeting",
+          "#sisi kwa sisi",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
         ),

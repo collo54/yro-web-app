@@ -51,7 +51,7 @@ class _AdStatefulLayoutState extends State<AdStatefulLayout> {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
-              color: Colors.teal[100],
+              color: Colors.green[100],
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -64,7 +64,7 @@ class _AdStatefulLayoutState extends State<AdStatefulLayout> {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
-              color: Colors.teal[100],
+              color: Colors.green[100],
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),

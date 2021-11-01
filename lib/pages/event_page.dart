@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yro/layouts/balance_layout.dart';
 import 'package:yro/layouts/photo_layout.dart';
+import 'package:yro/layouts/ad_stateful_layout.dart';
 
 class EventPage extends StatelessWidget {
   @override
@@ -11,6 +12,7 @@ class EventPage extends StatelessWidget {
         child: Column(
           children: [
             BalanceLayout(),
+            AdStatefulLayout(),
             Photolayout(),
             Photo1layout(),
             Container(
