@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yro/constants/colors.dart';
+import 'package:yro/widgets/pic_card.dart';
 
 class Photolayout extends StatefulWidget {
   @override
@@ -12,7 +14,7 @@ class _PhotoLayoutState extends State<Photolayout> {
       builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
           return Row(
-            children: pageChildren(constraints.biggest.width / 3, context),
+            children: pageChildren(constraints.biggest.width / 4, context),
           );
         } else {
           return Flex(
@@ -26,152 +28,98 @@ class _PhotoLayoutState extends State<Photolayout> {
 
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-            color: Colors.green[100],
+      Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            color: kPrimaryLight,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
-            )),
-        width: width,
-        child: _buildPhoto1(context, width),
-      ),
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: Colors.green[100],
+            ),
+          ),
+          width: width,
+          child: _buildPhoto1(
+            context,
+          ),
         ),
-        width: width,
-        child: _buildPhoto2(context, width),
       ),
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: Colors.green[100],
+      Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            color: Colors.greenAccent[400],
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+          ),
+          width: width,
+          child: _buildPhoto2(context, width),
         ),
-        width: width,
-        child: _buildPhoto3(context, width),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            color: Colors.greenAccent[400],
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+          ),
+          width: width,
+          child: _buildPhoto3(context, width),
+        ),
       ),
     ];
   }
 
   Widget _buildPhoto1(
     BuildContext context,
-    double width,
   ) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 20, left: 16),
-        child: Text(
-          "yro team",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 14, left: 16),
-        child: Text(
-          "group photo",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Container(
-          height: 300,
-          width: width,
-          child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
-
-          //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-        ),
-      ),
-    ]);
+    return PicCard(
+      contributor: null,
+      caption: 'top planters',
+      heading: 'conservation day',
+      name: 'assets/images/watsup1.jpeg',
+      onTap: () {},
+    );
   }
 
   Widget _buildPhoto2(
     BuildContext context,
     double width,
   ) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 20, left: 16),
-        child: Text(
-          "yro team",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 14, left: 16),
-        child: Text(
-          "casual",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Container(
-          height: 300,
-          width: width,
-          child: Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-        ),
-      ),
-    ]);
+    return PicCard(
+      contributor: null,
+      caption: 'top planters',
+      heading: 'conservation day',
+      name: 'assets/images/watsup2.jpeg',
+      onTap: () {},
+    );
   }
 
   Widget _buildPhoto3(
     BuildContext context,
     double width,
   ) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 20, left: 16),
-        child: Text(
-          "environment conservation day",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 14, left: 16),
-        child: Text(
-          "group photo",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Container(
-          height: 300,
-          width: width,
-          child: Image.asset(
-            "assets/images/pic2.jpg",
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.medium,
-          ),
-
-          //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-        ),
-      ),
-    ]);
+    return PicCard(
+      contributor: null,
+      caption: 'top planters',
+      heading: 'conservation day',
+      name: 'assets/images/pic2.jpg',
+      onTap: () {},
+    );
   }
 }
 
@@ -187,7 +135,7 @@ class _Photo1LayoutState extends State<Photo1layout> {
       builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
           return Row(
-            children: pageChildren(constraints.biggest.width / 3, context),
+            children: pageChildren(constraints.biggest.width / 4, context),
           );
         } else {
           return Flex(
@@ -201,34 +149,55 @@ class _Photo1LayoutState extends State<Photo1layout> {
 
   List<Widget> pageChildren(double width, BuildContext context) {
     return <Widget>[
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-            color: Colors.green[100],
+      Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+              color: Colors.indigoAccent[400],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30),
+              )),
+          width: width,
+          child: _buildPhoto1(context, width),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            color: Colors.greenAccent[400],
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
-            )),
-        width: width,
-        child: _buildPhoto1(context, width),
-      ),
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: Colors.green[100],
+            ),
+          ),
+          width: width,
+          child: _buildPhoto2(context, width),
         ),
-        width: width,
-        child: _buildPhoto2(context, width),
       ),
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: Colors.green[100],
+      Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          decoration: BoxDecoration(
+            color: Colors.greenAccent[400],
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+          ),
+          width: width,
+          child: _buildPhoto3(context, width),
         ),
-        width: width,
-        child: _buildPhoto3(context, width),
       ),
     ];
   }
@@ -237,123 +206,38 @@ class _Photo1LayoutState extends State<Photo1layout> {
     BuildContext context,
     double width,
   ) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 20, left: 16),
-        child: Text(
-          "environment conservation day",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 14, left: 16),
-        child: Text(
-          "top tree planters",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Container(
-          height: 300,
-          width: width,
-          child: Image.asset(
-            "assets/images/pic3.jpg",
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.medium,
-          ),
-
-          //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-        ),
-      ),
-    ]);
+    return PicCard(
+      contributor: null,
+      caption: 'top planters',
+      heading: 'conservation day',
+      name: "assets/images/pic3.jpg",
+      onTap: () {},
+    );
   }
 
   Widget _buildPhoto2(
     BuildContext context,
     double width,
   ) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 20, left: 16),
-        child: Text(
-          "conservation day",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 14, left: 16),
-        child: Text(
-          "members in action",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Container(
-          height: 300,
-          width: width,
-          child: Image.asset(
-            "assets/images/pic6.jpg",
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.medium,
-          ),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-        ),
-      ),
-    ]);
+    return PicCard(
+      contributor: null,
+      caption: 'top planters',
+      heading: 'conservation day',
+      name: "assets/images/pic6.jpg",
+      onTap: () {},
+    );
   }
 
   Widget _buildPhoto3(
     BuildContext context,
     double width,
   ) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 20, left: 16),
-        child: Text(
-          "conservation day",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 14, left: 16),
-        child: Text(
-          "#sisi kwa sisi",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black45),
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Container(
-          height: 300,
-          width: width,
-          child: Image.asset(
-            "assets/images/pic4.jpg",
-            fit: BoxFit.cover,
-            filterQuality: FilterQuality.medium,
-          ),
-
-          //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
-        ),
-      ),
-    ]);
+    return PicCard(
+      contributor: null,
+      caption: 'top planters',
+      heading: 'conservation day',
+      name: "assets/images/pic4.jpg",
+      onTap: () {},
+    );
   }
 }
