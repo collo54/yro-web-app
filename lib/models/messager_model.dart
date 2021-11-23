@@ -50,41 +50,4 @@ class Messager {
       'time': time,
     };
   }
-
-  /*static List<Message> generateMessages() {
-    return [
-      Message(
-        'my funny account blah blah blahmy funny book blah blah blah ',
-        '18:40',
-      ),
-      Message(
-        'my funny book blah blah blahmy funny book blah blah blah',
-        '18:41',
-      ),
-      Message(
-        'my funny bag blah blah blahmy funny book blah blah blah',
-        '18:43',
-      ),
-      Message(
-        'my funny panckacke blah blah blahmy funny book blah blah blah',
-        '18:44',
-      ),
-      Message(
-        'my funny account blah blah blahmy funny book blah blah blah',
-        '18:45',
-      ),
-      Message(
-        'my funny food blah blah blahmy funny book blah blah blah',
-        '18:46',
-      ),
-      Message(
-        'my funny scooter blah blah blahmy funny book blah blah blah',
-        '18:50',
-      ),
-      Message(
-        'my funny bike blah blah blahmy funny book blah blah blah',
-        '18:30',
-      ),
-    ];
-  }*/
 }

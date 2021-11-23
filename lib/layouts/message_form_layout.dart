@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yro/constants/colors.dart';
-import 'package:yro/layouts/chat_content.dart';
 import 'package:yro/models/messager_model.dart';
 import 'package:yro/services/firestore_service.dart';
 

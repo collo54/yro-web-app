@@ -18,6 +18,10 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
   String _email;
   String _password;
 
+  String phoneNo, smsCode;
+
+  bool codeSent = false;
+
   void _toogleFormType() {
     setState(() {
       _formType = _formType == EmailSignInFormType.signIn
@@ -208,7 +212,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
             padding:
                 const EdgeInsets.symmetric(vertical: 18.0, horizontal: 25.0),
             child: Text(
-              "Sign Up anonymously",
+              "Sign up anonymously",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,

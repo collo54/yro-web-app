@@ -45,6 +45,15 @@ class AuthService {
     return _userFromFirebase(authResult.user);
   }
 
+  Future<Userre> signInWithPhoneNumber(String phoneno, String code) async {
+    ConfirmationResult confirmationResult =
+        await _firebaseAuth.signInWithPhoneNumber(
+      phoneno,
+    );
+    UserCredential userCredential = await confirmationResult.confirm(code);
+    return _userFromFirebase(userCredential.user);
+  }
+
   Future<Userre> signInWithGoogle() async {
     final googleUser = await _googleSignIn.signIn();
     final googleAuth = await googleUser.authentication;
@@ -52,6 +61,18 @@ class AuthService {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
+    final authResult = await _firebaseAuth.signInWithCredential(credential);
+    return _userFromFirebase(authResult.user);
+  }
+
+//SignIn
+  signIn(AuthCredential credential) {
+    FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  signInWithOTP(smsCode, verId) async {
+    AuthCredential credential =
+        PhoneAuthProvider.credential(verificationId: verId, smsCode: smsCode);
     final authResult = await _firebaseAuth.signInWithCredential(credential);
     return _userFromFirebase(authResult.user);
   }
