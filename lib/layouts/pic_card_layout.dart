@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yro/widgets/avator_widget.dart';
 import 'package:yro/widgets/pic_card.dart';
 
 class PicCardLayout extends StatelessWidget {

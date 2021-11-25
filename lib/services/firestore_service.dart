@@ -1,16 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:yro/models/avatar_reference.dart';
 import 'package:yro/models/contributor_model.dart';
 import 'package:yro/models/likes_model.dart';
 import 'package:yro/models/messager_model.dart';
 import 'package:yro/services/firestore_path.dart';
-import 'package:flutter/foundation.dart';
 
 String documentIdFromCurrentDate() => DateTime.now().toIso8601String();
 
 class FirestoreService {
-  FirestoreService({@required this.uid}) : assert(uid != null);
+  FirestoreService({required this.uid});
   final String uid;
 
   // reads current contributor data
@@ -34,8 +32,9 @@ class FirestoreService {
     await reference.delete();
   }
 
-  Future<void> _set({String path, Map<String, dynamic> data}) async {
-    final reference = FirebaseFirestore.instance.doc(path);
+  Future<void> _set({required String path, Map<String, dynamic>? data}) async {
+    final DocumentReference<Map<String, dynamic>?> reference =
+        FirebaseFirestore.instance.doc(path);
     print('$path: $data');
     await reference.set(data);
   }

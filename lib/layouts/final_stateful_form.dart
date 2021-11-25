@@ -15,10 +15,10 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
   final _formKey = GlobalKey<FormState>();
   EmailSignInFormType _formType = EmailSignInFormType.signIn;
 
-  String _email;
-  String _password;
+  late String _email;
+  String? _password;
 
-  String phoneNo, smsCode;
+  String? phoneNo, smsCode;
 
   bool codeSent = false;
 
@@ -28,7 +28,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
           ? EmailSignInFormType.register
           : EmailSignInFormType.signIn;
     });
-    final form = _formKey.currentState;
+    final form = _formKey.currentState!;
     form.reset();
   }
 
@@ -36,7 +36,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
     try {
       final auth = Provider.of<AuthService>(context, listen: false);
       final user = await auth.signInAnonymously();
-      print('uid: ${user.uid}');
+      print('uid: ${user!.uid}');
     } catch (e) {
       print(e);
     }
@@ -46,7 +46,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
     try {
       final auth = Provider.of<AuthService>(context, listen: false);
       final user = await auth.signInWithGoogle();
-      print('uid: ${user.uid}');
+      print('uid: ${user!.uid}');
     } catch (e) {
       print(e.toString());
     }
@@ -58,11 +58,11 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
           (_validateAndSaveForm())) {
         print('$_email');
         final auth = Provider.of<AuthService>(context, listen: false);
-        await auth.signInWithEmailAndPassword(_email, _password);
+        await auth.signInWithEmailAndPassword(_email, _password!);
       } else if (_validateAndSaveForm()) {
         print('$_email');
         final auth = Provider.of<AuthService>(context, listen: false);
-        await auth.createUserWithEmailAndPassword(_email, _password);
+        await auth.createUserWithEmailAndPassword(_email, _password!);
       }
     } catch (e) {
       print(e.toString());
@@ -70,7 +70,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
   }
 
   bool _validateAndSaveForm() {
-    final form = _formKey.currentState;
+    final form = _formKey.currentState!;
     if (form.validate()) {
       form.save();
       return true;
@@ -273,13 +273,13 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
       ),
       TextFormField(
         validator: (value) {
-          if (value.isEmpty) {
+          if (value!.isEmpty) {
             return 'enter your email';
           }
           return null;
         },
         //initialValue: _email,
-        onSaved: (value) => _email = value.trim(),
+        onSaved: (value) => _email = value!.trim(),
         style: TextStyle(fontWeight: FontWeight.w600),
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.mail),
@@ -294,7 +294,7 @@ class _FinalstatefulFormState extends State<FinalstatefulForm> {
       ),
       TextFormField(
         validator: (value) {
-          if (value.isEmpty) {
+          if (value!.isEmpty) {
             return 'enter your password';
           }
           return null;

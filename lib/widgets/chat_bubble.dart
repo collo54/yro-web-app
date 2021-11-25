@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class ChatBubble extends StatelessWidget {
   const ChatBubble(
-      {@required this.text,
-      @required this.isCurrentUser,
-      @required this.time,
-      @required this.name});
-  final String text;
+      {required this.text,
+      required this.isCurrentUser,
+      required this.time,
+      required this.name});
+  final String? text;
   final bool isCurrentUser;
-  final String time;
-  final String name;
+  final String? time;
+  final String? name;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class ChatBubble extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      name,
+                      name!,
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -47,7 +47,7 @@ class ChatBubble extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  text,
+                  text!,
                 )
               ],
             ),

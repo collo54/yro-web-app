@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yro/layouts/avator_layout.dart';
 import 'package:yro/layouts/message_form_layout.dart';
 import 'package:yro/layouts/new_chat_layout.dart';
 

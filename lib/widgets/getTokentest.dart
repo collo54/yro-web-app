@@ -67,6 +67,7 @@ class _DemoState extends State<Demo> {
               'You have pushed the button this many times:',
             ),
             Text(
+              // ignore: unnecessary_null_comparison
               '$_accessToken' != null ? '$_accessToken' : 'default value',
               style: TextStyle(color: Colors.black87, fontSize: 20),
             ),

@@ -7,35 +7,28 @@ class Messager {
       this.name,
       this.userId,
       this.time,
-      this.downloadUrl})
-      : assert(userId != null);
-  final String message;
-  final int timeStamp;
-  final String name;
-  final String userId;
-  final String downloadUrl;
-  final String time;
+      this.downloadUrl});
+  final String? message;
+  final int? timeStamp;
+  final String? name;
+  final String? userId;
+  final String? downloadUrl;
+  final String? time;
 
   factory Messager.fromMap(Map<String, dynamic> data) {
-    if (data == null) {
-      return null;
-    }
-    final String name = data['name'];
-    final int timeStamp = data['timeStamp'];
-    final String userId = data['userId'];
-    final String message = data['message'];
-    final String downloadUrl = data['downloadUrl'];
-    final String time = data['time'];
+    final String? name = data['name'];
+    final int? timeStamp = data['timeStamp'];
+    final String? userId = data['userId'];
+    final String? message = data['message'];
+    final String? downloadUrl = data['downloadUrl'];
+    final String? time = data['time'];
 
-    if (message == null) {
-      return null;
-    }
     return Messager(
       time: time,
       name: name,
       message: message,
       timeStamp: timeStamp,
-      userId: userId,
+      userId: userId!,
       downloadUrl: downloadUrl,
     );
   }

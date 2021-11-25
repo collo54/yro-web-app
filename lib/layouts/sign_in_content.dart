@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:yro/models/avatar_reference.dart';
 import 'package:yro/services/AuthService.dart';
-import 'package:yro/services/firestore_service.dart';
 
 class SignInContent extends StatelessWidget {
   @override
@@ -27,7 +24,7 @@ class DesktopNavbar extends StatelessWidget {
     try {
       final auth = Provider.of<AuthService>(context, listen: false);
       final user = await auth.signInAnonymously();
-      print('uid: ${user.uid}');
+      print('uid: ${user!.uid}');
     } catch (e) {
       print(e);
     }
@@ -67,7 +64,7 @@ class MobileNavbar extends StatelessWidget {
     try {
       final auth = Provider.of<AuthService>(context, listen: false);
       final user = await auth.signInAnonymously();
-      print('uid: ${user.uid}');
+      print('uid: ${user!.uid}');
     } catch (e) {
       print(e);
     }

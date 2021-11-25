@@ -12,7 +12,7 @@ class NewSignUp extends StatelessWidget {
     try {
       final auth = Provider.of<AuthService>(context, listen: false);
       final user = await auth.signInAnonymously();
-      print('uid: ${user.uid}');
+      print('uid: ${user!.uid}');
     } catch (e) {
       print(e);
     }

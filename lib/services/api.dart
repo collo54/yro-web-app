@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:yro/services/api_keys.dart';
 
 class API {
   final String apikey;
-  API({@required this.apikey});
+  API({required this.apikey});
 
   factory API.sandbox() => API(apikey: APIKeys.darajasandboxkey);
 

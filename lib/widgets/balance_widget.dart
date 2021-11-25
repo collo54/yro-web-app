@@ -27,7 +27,7 @@ class BalanceWidget extends StatelessWidget {
     await database.deleteContibutor(contributor);
   }
 
-  Widget _buildUserInfo({BuildContext context}) {
+  Widget _buildUserInfo({required BuildContext context}) {
     final firestoreservice =
         Provider.of<FirestoreService>(context, listen: false);
     // final user = Provider.of<Userre>(context, listen: false);
@@ -35,7 +35,7 @@ class BalanceWidget extends StatelessWidget {
       stream: firestoreservice.contributorsStream(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final contributor = snapshot.data;
+          final contributor = snapshot.data!;
           if (contributor.isNotEmpty) {
             final children = contributor
                 .map(

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class YesNoSelection extends StatelessWidget {
   const YesNoSelection({this.onPressed, this.onPressed2});
-  final VoidCallback onPressed;
-  final VoidCallback onPressed2;
+  final VoidCallback? onPressed;
+  final VoidCallback? onPressed2;
   @override
   Widget build(BuildContext context) {
     return Padding(

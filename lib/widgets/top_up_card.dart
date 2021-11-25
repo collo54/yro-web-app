@@ -3,8 +3,8 @@ import 'package:yro/models/contributor_model.dart';
 
 class TopUpCard extends StatelessWidget {
   final Contributor contributor;
-  final VoidCallback onTap;
-  TopUpCard({Key key, @required this.contributor, this.onTap})
+  final VoidCallback? onTap;
+  TopUpCard({Key? key, required this.contributor, this.onTap})
       : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class TopUpCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(contributor.name,
+                Text(contributor.name!,
                     style: TextStyle(color: Colors.grey[500], fontSize: 16)),
                 Text('B A L A N C E',
                     style: TextStyle(color: Colors.grey[500], fontSize: 16)),

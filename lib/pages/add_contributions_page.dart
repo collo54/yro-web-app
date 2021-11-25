@@ -5,11 +5,11 @@ import 'package:yro/pages/home_page.dart';
 import 'package:yro/services/firestore_service.dart';
 
 class AddContributionsPage extends StatefulWidget {
-  const AddContributionsPage({Key key, this.contributor}) : super(key: key);
-  final Contributor contributor;
+  const AddContributionsPage({Key? key, this.contributor}) : super(key: key);
+  final Contributor? contributor;
 
   static Future<void> show(BuildContext context,
-      {Contributor contributor}) async {
+      {Contributor? contributor}) async {
     await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => AddContributionsPage(
@@ -27,24 +27,24 @@ class AddContributionsPage extends StatefulWidget {
 class _AddContributionsPageState extends State<AddContributionsPage> {
   final _formKey = GlobalKey<FormState>();
 
-  String _name;
-  int _contributionpermonth;
-  int _deposited;
-  int _withdrawn;
+  String? _name;
+  int? _contributionpermonth;
+  int? _deposited;
+  int? _withdrawn;
 
   @override
   void initState() {
     super.initState();
     if (widget.contributor != null) {
-      _name = widget.contributor.name;
-      _contributionpermonth = widget.contributor.contributionPerMonth;
-      _deposited = widget.contributor.deposited;
-      _withdrawn = widget.contributor.withdrawn;
+      _name = widget.contributor!.name;
+      _contributionpermonth = widget.contributor!.contributionPerMonth;
+      _deposited = widget.contributor!.deposited;
+      _withdrawn = widget.contributor!.withdrawn;
     }
   }
 
   bool _validateAndSaveForm() {
-    final form = _formKey.currentState;
+    final form = _formKey.currentState!;
     if (form.validate()) {
       form.save();
       return true;
@@ -153,7 +153,7 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
           signed: false,
           decimal: false,
         ),
-        onSaved: (value) => _contributionpermonth = int.parse(value) ?? 0,
+        onSaved: (value) => _contributionpermonth = int.parse(value!),
         maxLines: 2,
         textAlign: TextAlign.center,
       ),
@@ -169,7 +169,7 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
           signed: false,
           decimal: false,
         ),
-        onSaved: (value) => _deposited = int.parse(value) ?? 0,
+        onSaved: (value) => _deposited = int.parse(value!),
         maxLines: 2,
         textAlign: TextAlign.center,
       ),
@@ -185,7 +185,7 @@ class _AddContributionsPageState extends State<AddContributionsPage> {
           signed: false,
           decimal: false,
         ),
-        onSaved: (value) => _withdrawn = int.parse(value) ?? 0,
+        onSaved: (value) => _withdrawn = int.parse(value!),
         maxLines: 2,
         textAlign: TextAlign.center,
         scrollPadding: EdgeInsets.all(16),

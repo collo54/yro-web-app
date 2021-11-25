@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:yro/models/contributor_model.dart';
 
 class PicCard extends StatelessWidget {
-  final Contributor contributor;
-  final VoidCallback onTap;
+  final Contributor? contributor;
+  final VoidCallback? onTap;
   final String name;
   final String caption;
   final String heading;
-  final double width;
+  final double? width;
   PicCard(
-      {Key key,
-      @required this.contributor,
-      @required this.caption,
-      @required this.heading,
-      @required this.name,
+      {Key? key,
+      required this.contributor,
+      required this.caption,
+      required this.heading,
+      required this.name,
       this.width,
       this.onTap})
       : super(key: key);

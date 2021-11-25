@@ -9,7 +9,7 @@ class AdStatefulLayout extends StatefulWidget {
 }
 
 class _AdStatefulLayoutState extends State<AdStatefulLayout> {
-  BannerAd banner;
+  BannerAd? banner;
 
   @override
   void didChangeDependencies() {
@@ -98,6 +98,6 @@ class _AdStatefulLayoutState extends State<AdStatefulLayout> {
   Widget _buildAd(BuildContext context) {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [Expanded(child: AdWidget(ad: banner))]);
+        children: [Expanded(child: AdWidget(ad: banner!))]);
   }
 }

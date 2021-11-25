@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yro/custom/wrapper.dart';
 import 'package:yro/pages/event_page.dart';
 import 'package:yro/pages/add_contributions_page.dart';
 import 'package:yro/pages/home_page.dart';
@@ -10,11 +9,6 @@ class GenerateRoute {
     //final args = settings.arguments;
 
     switch (settings.name) {
-      case '/Wrapper':
-        return MaterialPageRoute(
-            builder: (_) => Wrapper(
-                  userSnapshot: null,
-                ));
       case '/LandingPage':
         return MaterialPageRoute(builder: (_) => LandingPage());
       case '/HomePage':

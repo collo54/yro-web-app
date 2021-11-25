@@ -6,10 +6,10 @@ import 'package:yro/models/messager_model.dart';
 import 'package:yro/services/firestore_service.dart';
 
 class MessageFormLayout extends StatefulWidget {
-  const MessageFormLayout({Key key, this.messager}) : super(key: key);
-  final Messager messager;
+  const MessageFormLayout({Key? key, this.messager}) : super(key: key);
+  final Messager? messager;
 
-  static Future<void> show(BuildContext context, {Messager messager}) async {
+  static Future<void> show(BuildContext context, {Messager? messager}) async {
     await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => MessageFormLayout(
@@ -27,21 +27,21 @@ class MessageFormLayout extends StatefulWidget {
 class _MessageFormLayoutState extends State<MessageFormLayout> {
   final _formKey = GlobalKey<FormState>();
 
-  String _name;
+  String? _name;
 
-  String _message;
+  String? _message;
 
   @override
   void initState() {
     super.initState();
     if (widget.messager != null) {
-      _name = widget.messager.name;
+      _name = widget.messager!.name;
       // _message = widget.messager.message;
     }
   }
 
   bool _validateAndSaveForm() {
-    final form = _formKey.currentState;
+    final form = _formKey.currentState!;
     if (form.validate()) {
       form.save();
       form.reset();
@@ -52,7 +52,7 @@ class _MessageFormLayoutState extends State<MessageFormLayout> {
 
   Future<void> _submit() async {
     if (_validateAndSaveForm()) {
-      final userId = FirebaseAuth.instance.currentUser.uid;
+      final userId = FirebaseAuth.instance.currentUser!.uid;
       final timeStamp = DateTime.now().millisecondsSinceEpoch;
       final time = DateTime.now().toIso8601String();
       final messager = Messager(

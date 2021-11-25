@@ -6,13 +6,13 @@ import 'package:yro/services/firebase_storage_service.dart';
 import 'package:yro/services/firestore_service.dart';
 
 class WrapperBuilder extends StatelessWidget {
-  const WrapperBuilder({Key key, @required this.builder}) : super(key: key);
-  final Widget Function(BuildContext, AsyncSnapshot<Userre>) builder;
+  const WrapperBuilder({Key? key, required this.builder}) : super(key: key);
+  final Widget Function(BuildContext, AsyncSnapshot<Userre?>) builder;
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthService>(context, listen: false);
 
-    return StreamBuilder<Userre>(
+    return StreamBuilder<Userre?>(
         stream: auth.onAuthStateChanged,
         builder: (context, snapshot) {
           final user = snapshot.data;
@@ -21,10 +21,10 @@ class WrapperBuilder extends StatelessWidget {
               providers: [
                 Provider<Userre>.value(value: user),
                 Provider<FirebaseStorageService>(
-                  create: (_) => FirebaseStorageService(uid: user.uid),
+                  create: (_) => FirebaseStorageService(uid: user.uid!),
                 ),
                 Provider<FirestoreService>(
-                  create: (_) => FirestoreService(uid: user.uid),
+                  create: (_) => FirestoreService(uid: user.uid!),
                 ),
               ],
               child: builder(context, snapshot), //HomePage(),

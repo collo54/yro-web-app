@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:yro/constants/colors.dart';
 import 'package:yro/models/messager_model.dart';
 import 'package:yro/models/user_model.dart';
-import 'package:yro/services/firebase_storage_service.dart';
 import 'package:yro/services/firestore_service.dart';
-import 'package:yro/services/image_picker_service.dart';
-import 'package:yro/widgets/avatar.dart';
 import 'package:yro/widgets/chat_bubble.dart';
 
 class NewChatLayout extends StatelessWidget {
@@ -55,7 +50,7 @@ class NewChatLayout extends StatelessWidget {
       stream: firestoreservice.messagerStream(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final messager = snapshot.data;
+          final messager = snapshot.data!;
           if (messager.isNotEmpty) {
             final children = messager
                 .map((messager) => //Row(
@@ -63,7 +58,7 @@ class NewChatLayout extends StatelessWidget {
                         ChatBubble(
                           text: messager.message,
                           name: messager.name,
-                          time: messager.time..substring(0, 16),
+                          time: messager.time!..substring(0, 16),
                           isCurrentUser:
                               user.uid == messager.userId ? true : false,
                         )

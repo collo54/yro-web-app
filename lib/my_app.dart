@@ -40,7 +40,7 @@ class MyAwesomeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<Userre>.value(
+    return StreamProvider<Userre?>.value(
       value: AuthService().onAuthStateChanged,
       initialData: null,
       child: MaterialApp(
@@ -72,7 +72,9 @@ class MyYro extends StatelessWidget {
             title: 'yro',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'Roboto'),
-            home: Wrapper(userSnapshot: userSnapshot),
+            home: Wrapper(
+              userSnapshot: userSnapshot,
+            ),
             onGenerateRoute: GenerateRoute.generateRoute,
           );
         }));

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 enum TabItem { events, chatcontent, userprofile }
 
 class TabItemData {
-  const TabItemData({@required this.label, @required this.icon});
+  const TabItemData({required this.label, required this.icon});
   final String label;
   final IconData icon;
 

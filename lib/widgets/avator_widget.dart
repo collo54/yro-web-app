@@ -15,19 +15,16 @@ class AvatorWidget extends StatelessWidget {
       final imagePicker =
           Provider.of<ImagePickerService>(context, listen: false);
       final file = await imagePicker.pickImage(source: ImageSource.gallery);
-      if (file != null) {
-        // 2. Upload to storage
-        final storage =
-            Provider.of<FirebaseStorageService>(context, listen: false);
-        final downloadUrl = await storage.uploadAvatar(file: file);
-        // 3. Save url to Firestore
-        final database = Provider.of<FirestoreService>(context, listen: false);
-        final userId = FirebaseAuth.instance.currentUser.uid;
-        await database.setAvatarReference(
-            AvatarReference(downloadUrl: downloadUrl, userId: userId));
-        // 4. (optional) delete local file as no longer needed
-        await file.delete();
-      }
+      final storage =
+          Provider.of<FirebaseStorageService>(context, listen: false);
+      final downloadUrl = await storage.uploadAvatar(file: file);
+      // 3. Save url to Firestore
+      final database = Provider.of<FirestoreService>(context, listen: false);
+      final userId = FirebaseAuth.instance.currentUser!.uid;
+      await database.setAvatarReference(
+          AvatarReference(downloadUrl: downloadUrl, userId: userId));
+      // 4. (optional) delete local file as no longer needed
+      await file.delete();
     } catch (e) {
       print(e);
     }
@@ -47,7 +44,7 @@ class AvatorWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildUserInfo({BuildContext context}) {
+  Widget _buildUserInfo({required BuildContext context}) {
     final database = Provider.of<FirestoreService>(context, listen: false);
 
     return StreamBuilder<AvatarReference>(

@@ -3,17 +3,17 @@ import 'package:flutter/rendering.dart';
 
 class Avatar extends StatelessWidget {
   const Avatar({
-    @required this.photoUrl,
-    @required this.radius,
+    required this.photoUrl,
+    required this.radius,
     this.borderColor,
     this.borderWidth,
     this.onPressed,
   });
-  final String photoUrl;
+  final String? photoUrl;
   final double radius;
-  final Color borderColor;
-  final double borderWidth;
-  final VoidCallback onPressed;
+  final Color? borderColor;
+  final double? borderWidth;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class Avatar extends StatelessWidget {
         child: CircleAvatar(
           radius: radius,
           backgroundColor: Colors.black12,
-          backgroundImage: photoUrl != null ? NetworkImage(photoUrl) : null,
+          backgroundImage: photoUrl != null ? NetworkImage(photoUrl!) : null,
           child:
               photoUrl == null ? Icon(Icons.person_sharp, size: radius) : null,
         ),
@@ -33,13 +33,13 @@ class Avatar extends StatelessWidget {
     );
   }
 
-  Decoration _borderDecoration() {
+  Decoration? _borderDecoration() {
     if (borderColor != null && borderWidth != null) {
       return BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: borderColor,
-          width: borderWidth,
+          color: borderColor!,
+          width: borderWidth!,
         ),
       );
     }
