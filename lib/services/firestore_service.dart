@@ -32,6 +32,7 @@ class FirestoreService {
     await reference.delete();
   }
 
+  // generic funtion creates a dcomcument and sets data in the document
   Future<void> _set({required String path, Map<String, dynamic>? data}) async {
     final DocumentReference<Map<String, dynamic>?> reference =
         FirebaseFirestore.instance.doc(path);
@@ -46,6 +47,7 @@ class FirestoreService {
         data: contributor.toMap());
   }
 
+  //reads documents in guestbook collection
   Stream<List<Messager>> messagerStream() {
     final reference = FirebaseFirestore.instance
         .collection('guestbook')
@@ -65,7 +67,7 @@ class FirestoreService {
     return snapshots.map((snapshot) => (snapshot.docs.length));
   }
 
-  //reads number of documents in likes collection
+  //reads number of documents in likes1 collection
   Stream<int> likesStream1() {
     final reference = FirebaseFirestore.instance.collection('likes1');
 
@@ -73,7 +75,7 @@ class FirestoreService {
     return snapshots.map((snapshot) => (snapshot.docs.length));
   }
 
-  //reads number of documents in likes collection
+  //reads number of documents in likes2 collection
   Stream<int> likesStream2() {
     final reference = FirebaseFirestore.instance.collection('likes2');
 
@@ -81,7 +83,7 @@ class FirestoreService {
     return snapshots.map((snapshot) => (snapshot.docs.length));
   }
 
-  //reads number of documents in likes collection
+  //reads number of documents in likes3 collection
   Stream<int> likesStream3() {
     final reference = FirebaseFirestore.instance.collection('likes3');
 
@@ -89,7 +91,7 @@ class FirestoreService {
     return snapshots.map((snapshot) => (snapshot.docs.length));
   }
 
-  //reads number of documents in likes collection
+  //reads number of documents in likes4 collection
   Stream<int> likesStream4() {
     final reference = FirebaseFirestore.instance.collection('likes4');
 
@@ -97,7 +99,7 @@ class FirestoreService {
     return snapshots.map((snapshot) => (snapshot.docs.length));
   }
 
-  //reads number of documents in likes collection
+  //reads number of documents in likes5 collection
   Stream<int> likesStream5() {
     final reference = FirebaseFirestore.instance.collection('likes5');
 
@@ -105,14 +107,14 @@ class FirestoreService {
     return snapshots.map((snapshot) => (snapshot.docs.length));
   }
 
-// adds likes docs to likes collection  in firebase
+  // adds likes docs to likes collection  in firebase
   Future<DocumentReference> setLikes(Likes likes) async {
     return await FirebaseFirestore.instance
         .collection('likes')
         .add(likes.toMap());
   }
 
-// adds likes docs to likes collection  in firebase
+  // adds likes docs to likes collection  in firebase
   Future<DocumentReference> setLikes1(Likes likes) async {
     return await FirebaseFirestore.instance
         .collection('likes1')
@@ -176,4 +178,3 @@ class FirestoreService {
         .map((snapshot) => AvatarReference.fromMap(snapshot.data()));
   }
 }
-//Stream<List<Contributor>>

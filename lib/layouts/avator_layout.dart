@@ -45,9 +45,6 @@ class _AvatorLayoutState extends State<Avatorlayout> {
           height: 500,
           width: width,
           child: Image.asset("assets/images/watsup1.jpeg", fit: BoxFit.cover),
-
-          //  Image.asset("assets/images/watsup2.jpeg", fit: BoxFit.cover),
-          // Image.asset("assets/images/watsup5.jpeg", fit: BoxFit.cover),
         ),
       ),
     ]);
